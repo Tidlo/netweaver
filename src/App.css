@@ -31,3 +31,9 @@
     transform: rotate(360deg);
   }
 }
+
+.network {
+  height: 500px;
+  width: 1000px;
+  border-bottom: solid 1px;
+}
