@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import VisNetwork from "./components/visnetwork";
-
-
+import {Pane} from "evergreen-ui";
+import Header from "./components/header"
 class App extends Component {
   render() {
     return (
-      <div >
-        <div className="App">
-          <VisNetwork className="network" />
-        </div>
-      </div>
+        <Pane>
+            <Header/>
+            <Pane marginLeft={12}>
+                <VisNetwork className="network" />
+            </Pane>
+        </Pane>
+
     );
   }
 }
