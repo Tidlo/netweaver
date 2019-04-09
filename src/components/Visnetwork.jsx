@@ -4,7 +4,7 @@ import React, {createRef} from "react";
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
-import {Button, Dialog, Pane, TextInputField} from "evergreen-ui";
+import {Button, Dialog, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 
 
@@ -49,8 +49,8 @@ function addClient() {
             image: clientIcon,
             shape: 'image',
             ip: ip,
-            mask:'',
-            gateway:'',
+            mask: '',
+            gateway: '',
         });
     } catch (err) {
         alert(err);
@@ -72,10 +72,9 @@ function addSwitch() {
     }
 }
 
-const ipRegex = "\\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\\b";
 
 // initialize your network!
-class VisNetwork extends React.Component {
+class Visnetwork extends React.Component {
 
     constructor(props) {
         super(props);
@@ -88,12 +87,12 @@ class VisNetwork extends React.Component {
             isEdgeDialogShown: false,
             focusedNode: null,
             nodes: null,
-            editingClientLabel: '',
-            editingClientIP:'',
-            editingClientMask:'',
-            editingClientGateway:'',
-            ipValidationMessage:null,
-            isInputValidate:true,
+            // editingClientLabel: '',
+            // editingClientIP:'',
+            // editingClientMask:'',
+            // editingClientGateway:'',
+            // ipValidationMessage:null,
+            // isInputValidate:true,
 
         };
         //initialize network
@@ -114,6 +113,7 @@ class VisNetwork extends React.Component {
         ]);
         data = {nodes, edges};
     }
+
     componentDidMount() {
 
         // define network options
@@ -147,12 +147,6 @@ class VisNetwork extends React.Component {
             } else if (params.nodes[0].includes('switch')) {
                 this.setState({isSwitchDialogShown: true, focusedNode: nodes.get(params.nodes[0])});
             }
-            // console.log(params);
-            // console.log(params.nodes[0]);
-            // console.log(this.state);
-            // console.log(nodes);
-            // console.log(nodes.get(params.nodes[0]));
-            // console.log(this.state.focusedNode);
         };
 
         this.network.on("doubleClick", function (params) {
@@ -165,99 +159,44 @@ class VisNetwork extends React.Component {
         });
     }
 
+    disableClientDialog() {
+        this.setState({
+            isClientDialogShown: false
+        });
+    };
 
+    updateClientNode(form) {
+        try {
+            nodes.update({
+                id: this.state.focusedNode.id,
+                label: form.label,
+                ip: form.ip,
+                mask: form.mask,
+                gateway: form.gateway,
+            });
+        } catch (err) {
+            alert(err);
+        }
+    }
+
+    addEdge = () => {
+        console.log(this.network);
+        this.network.addEdgeMode();
+    };
 
     render() {
-        let addEdge = () => {
-            console.log(this.network);
-            this.network.addEdgeMode();
-        };
-
-        let handleCancel = () => {
-            this.setState({
-                ipValidationMessage:null,
-            isClientDialogShown: false
-            });
-        };
-
-        let handleConfirm = ()=>{
-            console.log(isAllInputValidate());
-            if(isAllInputValidate()){
-                console.log(isAllInputValidate());
-                this.setState({isClientDialogShown: false});
-                try {
-                    nodes.update({
-                        id: this.state.focusedNode.id,
-                        label: this.state.editingClientLabel
-                    });
-                } catch (err) {
-                    alert(err);
-                }
-            }else{
-
-            }
-        };
-
-        let isAllInputValidate = ()=>{
-            return !(
-                this.state.ipValidationMessage
-            );
-        };
 
         return (
             <div>
                 <div className="network" ref={this.appRef}/>
                 <Pane>
-                    <Dialog
+                    <ClientConfigDialog
+                        disableClientDialog={() => this.disableClientDialog()}
                         isShown={this.state.isClientDialogShown}
-                        title="主机配置"
-                        intent="none"
-                        onCloseComplete={() => {
-                            this.setState({isClientDialogShown: false});
-                        }}
-                        onConfirm={handleConfirm}
-                        onCancel={handleCancel}
-                        confirmLabel="确认"
-                        cancelLabel="取消">
-
-                        <TextInputField
-                            label="主机名"
-                            placeholder="Client"
-                            onChange={e => this.setState({editingClientLabel: e.target.value})}
-                            defaultValue={this.state.focusedNode == null?'':this.state.focusedNode.label}
-                        />
-
-                        <TextInputField
-                            label="IP地址"
-                            placeholder="10.1.1.1"
-                            validationMessage={this.state.ipValidationMessage}
-                            onChange={e => {
-                                if(e.target.value.match(ipRegex)){
-                                    this.setState({
-                                        editingClientIP: e.target.value,
-                                        ipValidationMessage:null,
-                                    });
-                                }
-                                else{
-                                    this.setState({ipValidationMessage:'IP 格式有误'})
-                                }
-
-                            }}
-                            defaultValue={this.state.focusedNode == null?'':this.state.focusedNode.ip}
-                        />
-                        <TextInputField
-                            label="子网掩码"
-                            placeholder="255.255.255.0"
-                            onChange={e => this.setState({editingClientMask: e.target.value})}
-                            defaultValue={this.state.focusedNode == null?'':this.state.focusedNode.mask}
-                        />
-                        <TextInputField
-                            label="网关"
-                            placeholder="10.1.1.0"
-                            onChange={e => this.setState({editingClientGateway: e.target.value})}
-                            defaultValue={this.state.focusedNode == null?'':this.state.focusedNode.gateway}
-                        />
-                    </Dialog>
+                        nodes={nodes}
+                        focusedNode={this.state.focusedNode}
+                        updateClientNode={(p) => this.updateClientNode(p)}
+                    />
 
                     <Dialog
                         isShown={this.state.isRouterDialogShown}
@@ -290,11 +229,11 @@ class VisNetwork extends React.Component {
                 <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>
                 <Button marginRight={12} height={40} iconBefore="exchange" onClick={addSwitch}>交换机</Button>
                 <Button marginRight={12} height={40} iconBefore="search-around" onClick={addRouter}>路由器</Button>
-                <Button marginRight={12} height={40} iconBefore="new-link" onClick={addEdge}>连线</Button>
+                <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
 
             </div>
         );
     }
 }
 
-export default VisNetwork;
+export default Visnetwork;

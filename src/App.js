@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import VisNetwork from "./components/visnetwork";
+import Visnetwork from "./components/Visnetwork";
 import {Pane} from "evergreen-ui";
-import Header from "./components/header"
+import Header from "./components/Header"
+
 class App extends Component {
   render() {
     return (
         <Pane>
             <Header/>
             <Pane marginLeft={12}>
-                <VisNetwork className="network" />
+                <Visnetwork className="network"/>
             </Pane>
         </Pane>
 

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Pane, Button, Heading} from "evergreen-ui";
+import React, {Component} from 'react';
+import {Button, Heading, Pane} from "evergreen-ui";
 
 class Header extends Component{
     render() {

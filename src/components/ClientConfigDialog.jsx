@@ -1,15 +1,91 @@
-import React, { Component } from 'react';
-import {Pane, Button, Heading, Dialog} from "evergreen-ui";
-//todo use independent dialog for each devices.
+import React, {Component} from 'react';
+import {Dialog, TextInputField} from "evergreen-ui";
+
+const ipRegex = "\\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\\b";
+
 class ClientConfigDialog extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            editingClientLabel: '',
+            editingClientIP: '',
+            editingClientMask: '',
+            editingClientGateway: '',
+            ipValidationMessage: null,
+            isInputValidate: true,
+        }
+    }
+
+    handleCancel = () => {
+        this.setState({
+            ipValidationMessage: null,
+        });
+        this.props.disableClientDialog();
+    };
+
+    handleConfirm = () => {
+        if (this.isAllInputValidate()) {
+            this.props.disableClientDialog();
+            this.props.updateClientNode({
+                label: this.state.editingClientLabel,
+                ip: this.state.editingClientIP,
+                mask: this.state.editingClientMask,
+                gateway: this.state.editingClientGateway
+            });
+        }
+    };
+
+    isAllInputValidate = () => {
+        return !(
+            this.state.ipValidationMessage
+        );
+    };
+
     render() {
         return (
             <Dialog
-                title="交换机配置"
-                intent="danger"
-                onCloseComplete={() => this.setState({ isSwitchDialogShown: false })}
-                confirmLabel="Delete Something">
-                Dialog content
+                isShown={this.props.isShown}
+                title="主机配置"
+                intent="none"
+                onCloseComplete={this.props.disableClientDialog}
+                onConfirm={this.handleConfirm}
+                onCancel={this.handleCancel}
+                confirmLabel="确认"
+                cancelLabel="取消">
+                <TextInputField
+                    label="主机名"
+                    placeholder="Client"
+                    onChange={e => this.setState({editingClientLabel: e.target.value})}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.label}
+                />
+                <TextInputField
+                    label="IP地址"
+                    placeholder="10.1.1.1"
+                    validationMessage={this.state.ipValidationMessage}
+                    onChange={e => {
+                        if (e.target.value.match(ipRegex)) {
+                            this.setState({
+                                editingClientIP: e.target.value,
+                                ipValidationMessage: null,
+                            });
+                        } else {
+                            this.setState({ipValidationMessage: 'IP 格式有误'})
+                        }
+                    }}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.ip}
+                />
+                <TextInputField
+                    label="子网掩码"
+                    placeholder="255.255.255.0"
+                    onChange={e => this.setState({editingClientMask: e.target.value})}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.mask}
+                />
+                <TextInputField
+                    label="网关"
+                    placeholder="10.1.1.0"
+                    onChange={e => this.setState({editingClientGateway: e.target.value})}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.gateway}
+                />
             </Dialog>
         );
     }
