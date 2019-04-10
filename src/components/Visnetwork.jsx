@@ -6,6 +6,7 @@ import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
 import {Button, Dialog, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
+import SelectPortDialog from "./SelectPortDialog";
 
 
 let nodes = new DataSet();
@@ -19,6 +20,9 @@ let data = {nodes, edges};
 let routerNumbers = 1;
 let clientNumbers = 1;
 let switchNumbers = 1;
+
+let callBack = function () {
+};
 
 function addRouter() {
     let id = 'router' + routerNumbers;
@@ -84,16 +88,11 @@ class Visnetwork extends React.Component {
             isClientDialogShown: false,
             isRouterDialogShown: false,
             isSwitchDialogShown: false,
-            isEdgeDialogShown: false,
+            isPortDialogShown: false,
             focusedNode: null,
             nodes: null,
-            // editingClientLabel: '',
-            // editingClientIP:'',
-            // editingClientMask:'',
-            // editingClientGateway:'',
-            // ipValidationMessage:null,
-            // isInputValidate:true,
-
+            edgeData: {},
+            isDeleteButtonShown: 'none',
         };
         //initialize network
         addSwitch();
@@ -115,24 +114,31 @@ class Visnetwork extends React.Component {
     }
 
     componentDidMount() {
-
         // define network options
         let options = {
             locale: 'en',
             manipulation: {
                 initiallyActive: true,
-                enabled: true,
+                enabled: false,
                 addEdge: function (data, callback) {
+                    //avoid self-loop
                     if (data.from === data.to) {
                         return;
                     }
-                    editEdgeWithoutDrag();
+                    //extract the callback function to higher scope
+                    callBack = callback;
+                    showSelectPortDialog(data);
                 },
             },
         };
 
-        let editEdgeWithoutDrag = () => {
-            this.setState({isEdgeDialogShown: true});
+        let showSelectPortDialog = (data) => {
+            //set isPortDialogShown to true to popup dialog
+            this.setState({
+                isPortDialogShown: true,
+                edgeData: data,
+            });
+            console.log(data);
         };
 
         this.network = new Network(this.appRef.current, data, options);
@@ -149,9 +155,23 @@ class Visnetwork extends React.Component {
             }
         };
 
+        /**
+         * Mouse event handlers
+         */
+
         this.network.on("doubleClick", function (params) {
             showDialog(params);
         });
+        this.network.on("click", params => handleClick(params));
+
+        let handleClick = (params) => {
+            console.log(params.edges);
+            if (params.edges.length > 0 || params.nodes.length > 0) {
+                this.setState({isDeleteButtonShown: 'inline-block',});
+            } else {
+                this.setState({isDeleteButtonShown: 'none',});
+            }
+        };
 
         this.network.on("oncontext", function (params) {
             params.event = "[original event]";
@@ -164,6 +184,12 @@ class Visnetwork extends React.Component {
             isClientDialogShown: false
         });
     };
+
+    disablePortDialog() {
+        this.setState({
+            isPortDialogShown: false
+        })
+    }
 
     updateClientNode(form) {
         try {
@@ -179,59 +205,83 @@ class Visnetwork extends React.Component {
         }
     }
 
+    /**
+     * handler for add edge button to trigger callback.
+     */
     addEdge = () => {
-        console.log(this.network);
+        console.log();
         this.network.addEdgeMode();
+    };
+
+    confirmAddEdge = (data) => {
+        console.log(data);
+        if (typeof data.to === 'object')
+            data.to = data.to.id;
+        if (typeof data.from === 'object')
+            data.from = data.from.id;
+        callBack(data);
+    };
+
+    cancelAddEdge = () => {
+        callBack(null);
+        this.network.disableEditMode();
     };
 
     render() {
 
         return (
-            <div>
-                <div className="network" ref={this.appRef}/>
-                <Pane>
-                    <ClientConfigDialog
-                        disableClientDialog={() => this.disableClientDialog()}
-                        isShown={this.state.isClientDialogShown}
-                        nodes={nodes}
-                        focusedNode={this.state.focusedNode}
-                        updateClientNode={(p) => this.updateClientNode(p)}
-                    />
-
-                    <Dialog
-                        isShown={this.state.isRouterDialogShown}
-                        title="路由器配置"
-                        intent="danger"
-                        onCloseComplete={() => this.setState({isClientDialogShown: false})}
-                        confirmLabel="Delete Something">
-                        Dialog content
-                    </Dialog>
-
-                    <Dialog
-                        isShown={this.state.isSwitchDialogShown}
-                        title="交换机配置"
-                        intent="danger"
-                        onCloseComplete={() => this.setState({isSwitchDialogShown: false})}
-                        confirmLabel="Delete Something">
-                        Dialog content
-                    </Dialog>
-
-                    <Dialog
-                        isShown={this.state.isEdgeDialogShown}
-                        title="选择端口"
-                        intent="danger"
-                        onCloseComplete={() => this.setState({isEdgeDialogShown: false})}
-                        confirmLabel="Delete Something">
-                        Dialog content
-                    </Dialog>
-
+            <Pane>
+                <Pane
+                    width={1000}
+                    marginTop={4}
+                    marginBottom={4}
+                    elevation={1}>
+                    <div className="network" ref={this.appRef}/>
                 </Pane>
+
+                <ClientConfigDialog
+                    disableClientDialog={() => this.disableClientDialog()}
+                    isShown={this.state.isClientDialogShown}
+                    nodes={nodes}
+                    focusedNode={this.state.focusedNode}
+                    updateClientNode={(p) => this.updateClientNode(p)}/>
+
+                <SelectPortDialog
+                    isShown={this.state.isPortDialogShown}
+                    disablePortDialog={() => this.disablePortDialog()}
+                    confirmAddEdge={(p) => this.confirmAddEdge(p)}
+                    cancelAddEdge={() => this.cancelAddEdge()}
+                    edgeData={this.state.edgeData}
+                />
+
+                <Dialog
+                    isShown={this.state.isRouterDialogShown}
+                    title="路由器配置"
+                    intent="danger"
+                    onCloseComplete={() => this.setState({isClientDialogShown: false})}
+                    confirmLabel="Delete Something">
+                    Dialog content
+                </Dialog>
+
+                <Dialog
+                    isShown={this.state.isSwitchDialogShown}
+                    title="交换机配置"
+                    intent="danger"
+                    onCloseComplete={() => this.setState({isSwitchDialogShown: false})}
+                    confirmLabel="Delete Something">
+                    Dialog content
+                </Dialog>
+
+
                 <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>
                 <Button marginRight={12} height={40} iconBefore="exchange" onClick={addSwitch}>交换机</Button>
                 <Button marginRight={12} height={40} iconBefore="search-around" onClick={addRouter}>路由器</Button>
                 <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
+                <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
+                        display={this.state.isDeleteButtonShown}
+                        onClick={() => this.network.deleteSelected()}>删除</Button>
 
-            </div>
+            </Pane>
         );
     }
 }

@@ -12,33 +12,54 @@ class ClientConfigDialog extends Component {
             editingClientMask: '',
             editingClientGateway: '',
             ipValidationMessage: null,
+            maskValidationMessage: null,
             isInputValidate: true,
         }
     }
+
+    handleConfirm = () => {
+        if (this.isAllInputValidate()) {
+            this.props.disableClientDialog();
+            let form = {
+                label: this.state.editingClientLabel.length === 0 ? this.props.focusedNode.label : this.state.editingClientLabel,
+                ip: this.state.editingClientIP.length === 0 ? this.props.focusedNode.ip : this.state.editingClientIP,
+                mask: this.state.editingClientMask.length === 0 ? this.props.focusedNode.mask : this.state.editingClientMask,
+                gateway: this.state.editingClientGateway.length === 0 ? this.props.focusedNode.gateway : this.state.editingClientGateway,
+            };
+
+            this.props.updateClientNode(form);
+        }
+        this.clearInputField();
+    };
 
     handleCancel = () => {
         this.setState({
             ipValidationMessage: null,
         });
         this.props.disableClientDialog();
+        this.clearInputField();
     };
 
-    handleConfirm = () => {
-        if (this.isAllInputValidate()) {
-            this.props.disableClientDialog();
-            this.props.updateClientNode({
-                label: this.state.editingClientLabel,
-                ip: this.state.editingClientIP,
-                mask: this.state.editingClientMask,
-                gateway: this.state.editingClientGateway
-            });
-        }
-    };
-
+    /**
+     * Check whether all input fields of dialog are validate
+     * @returns {boolean}
+     */
     isAllInputValidate = () => {
         return !(
             this.state.ipValidationMessage
         );
+    };
+
+    /**
+     * Reset states for input fields.
+     */
+    clearInputField = () => {
+        this.setState({
+            editingClientLabel: '',
+            editingClientIP: '',
+            editingClientMask: '',
+            editingClientGateway: '',
+        });
     };
 
     render() {
@@ -62,6 +83,7 @@ class ClientConfigDialog extends Component {
                     label="IP地址"
                     placeholder="10.1.1.1"
                     validationMessage={this.state.ipValidationMessage}
+                    isInvalid={this.state.ipValidationMessage !== null}
                     onChange={e => {
                         if (e.target.value.match(ipRegex)) {
                             this.setState({
