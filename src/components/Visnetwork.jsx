@@ -7,7 +7,7 @@ import switchIcon from '../img/switch.png';
 import {Button, Dialog, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
-
+import Client from '../devices/Client'
 
 let nodes = new DataSet();
 
@@ -24,6 +24,22 @@ let switchNumbers = 1;
 let callBack = function () {
 };
 
+function addClient() {
+    let id = 'client' + clientNumbers;
+    clientNumbers++;
+    try {
+        nodes.add({
+            id: id,
+            label: id,
+            image: clientIcon,
+            shape: 'image',
+            device: new Client()
+        });
+    } catch (err) {
+        alert(err);
+    }
+}
+
 function addRouter() {
     let id = 'router' + routerNumbers;
     routerNumbers++;
@@ -36,25 +52,6 @@ function addRouter() {
             routerConfig: {
                 rule: 'rule1',
             },
-        });
-    } catch (err) {
-        alert(err);
-    }
-}
-
-function addClient() {
-    const ip = '192.168.1.2';
-    let id = 'client' + clientNumbers;
-    clientNumbers++;
-    try {
-        nodes.add({
-            id: id,
-            label: ip,
-            image: clientIcon,
-            shape: 'image',
-            ip: ip,
-            mask: '',
-            gateway: '',
         });
     } catch (err) {
         alert(err);
@@ -142,6 +139,9 @@ class Visnetwork extends React.Component {
         };
 
         this.network = new Network(this.appRef.current, data, options);
+
+        console.log(this.network);
+
         let showDialog = (params) => {
             if (!params.nodes.length > 0)
                 return;
@@ -196,13 +196,11 @@ class Visnetwork extends React.Component {
             nodes.update({
                 id: this.state.focusedNode.id,
                 label: form.label,
-                ip: form.ip,
-                mask: form.mask,
-                gateway: form.gateway,
             });
         } catch (err) {
             alert(err);
         }
+        this.state.focusedNode.device.updateInfo(form);
     }
 
     /**

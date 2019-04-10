@@ -22,9 +22,9 @@ class ClientConfigDialog extends Component {
             this.props.disableClientDialog();
             let form = {
                 label: this.state.editingClientLabel.length === 0 ? this.props.focusedNode.label : this.state.editingClientLabel,
-                ip: this.state.editingClientIP.length === 0 ? this.props.focusedNode.ip : this.state.editingClientIP,
-                mask: this.state.editingClientMask.length === 0 ? this.props.focusedNode.mask : this.state.editingClientMask,
-                gateway: this.state.editingClientGateway.length === 0 ? this.props.focusedNode.gateway : this.state.editingClientGateway,
+                ip: this.state.editingClientIP.length === 0 ? this.props.focusedNode.device.ip : this.state.editingClientIP,
+                mask: this.state.editingClientMask.length === 0 ? this.props.focusedNode.device.mask : this.state.editingClientMask,
+                gateway: this.state.editingClientGateway.length === 0 ? this.props.focusedNode.device.gateway : this.state.editingClientGateway,
             };
 
             this.props.updateClientNode(form);
@@ -94,19 +94,19 @@ class ClientConfigDialog extends Component {
                             this.setState({ipValidationMessage: 'IP 格式有误'})
                         }
                     }}
-                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.ip}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.device.ip}
                 />
                 <TextInputField
                     label="子网掩码"
                     placeholder="255.255.255.0"
                     onChange={e => this.setState({editingClientMask: e.target.value})}
-                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.mask}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.device.mask}
                 />
                 <TextInputField
                     label="网关"
                     placeholder="10.1.1.0"
                     onChange={e => this.setState({editingClientGateway: e.target.value})}
-                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.gateway}
+                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.device.gateway}
                 />
             </Dialog>
         );
