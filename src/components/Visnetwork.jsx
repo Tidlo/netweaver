@@ -8,6 +8,8 @@ import {Button, Dialog, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
 import Client from '../devices/Client'
+import Router from "../devices/Router";
+import Switch from "../devices/Switch";
 
 let nodes = new DataSet();
 
@@ -33,6 +35,7 @@ function addClient() {
             label: id,
             image: clientIcon,
             shape: 'image',
+            icon: 'desktop',
             device: new Client()
         });
     } catch (err) {
@@ -49,9 +52,7 @@ function addRouter() {
             label: id,
             image: routerIcon,
             shape: 'image',
-            routerConfig: {
-                rule: 'rule1',
-            },
+            device: new Router(),
         });
     } catch (err) {
         alert(err);
@@ -67,6 +68,7 @@ function addSwitch() {
             label: id,
             image: switchIcon,
             shape: 'image',
+            device: new Switch(),
         });
     } catch (err) {
         alert(err);
@@ -90,6 +92,8 @@ class Visnetwork extends React.Component {
             nodes: null,
             edgeData: {},
             isDeleteButtonShown: 'none',
+            fromNode: {device: new Client()},
+            toNode: {device: new Client()},
         };
         //initialize network
         addSwitch();
@@ -134,8 +138,10 @@ class Visnetwork extends React.Component {
             this.setState({
                 isPortDialogShown: true,
                 edgeData: data,
+                fromNode: nodes.get(data.from),
+                toNode: nodes.get(data.to),
             });
-            console.log(data);
+            console.log(this.state.fromNode);
         };
 
         this.network = new Network(this.appRef.current, data, options);
@@ -217,6 +223,9 @@ class Visnetwork extends React.Component {
             data.to = data.to.id;
         if (typeof data.from === 'object')
             data.from = data.from.id;
+
+        this.state.fromNode.device.occupyPort(data.fromPort);
+        this.state.toNode.device.occupyPort(data.toPort);
         callBack(data);
     };
 
@@ -226,7 +235,6 @@ class Visnetwork extends React.Component {
     };
 
     render() {
-
         return (
             <Pane>
                 <Pane
@@ -250,6 +258,8 @@ class Visnetwork extends React.Component {
                     confirmAddEdge={(p) => this.confirmAddEdge(p)}
                     cancelAddEdge={() => this.cancelAddEdge()}
                     edgeData={this.state.edgeData}
+                    fromNode={this.state.fromNode}
+                    toNode={this.state.toNode}
                 />
 
                 <Dialog

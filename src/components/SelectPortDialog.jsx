@@ -23,11 +23,13 @@ class SelectPortDialog extends React.Component {
             toPort: this.state.toPort,
         };
         this.props.confirmAddEdge(edgeInfo);
+        this.setState({fromPort: '', toPort: ''});
     };
 
     handleCancel = () => {
         this.props.disablePortDialog();
         this.props.cancelAddEdge();
+        this.setState({fromPort: '', toPort: ''});
     };
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -94,11 +96,15 @@ class SelectPortDialog extends React.Component {
                         <SelectMenu
                             hasTitle={false}
                             hasFilter={false}
-                            height={200}
-                            width={100}
+                            height={
+                                this.props.fromNode.device.ports
+                                    .filter(port => !port.occupied).length * 33
+                            }
+                            width={140}
                             options={
-                                ['GE 0/0/0', 'GE 0/0/1', 'GE 0/0/2', 'GE 0/0/3', 'GE 0/0/4']
-                                    .map(label => ({label, value: label}))
+                                this.props.fromNode.device.ports
+                                    .filter(port => !port.occupied)
+                                    .map(port => ({label: port.name, value: port.name}))
                             }
                             selected={this.state.fromPort}
                             onSelect={item => this.setState({fromPort: item.value})}>
@@ -131,11 +137,15 @@ class SelectPortDialog extends React.Component {
                             display="block"
                             hasTitle={false}
                             hasFilter={false}
-                            height={200}
-                            width={100}
+                            height={
+                                this.props.toNode.device.ports
+                                    .filter(port => !port.occupied).length * 33
+                            }
+                            width={140}
                             options={
-                                ['GE 0/0/0', 'GE 0/0/1', 'GE 0/0/2', 'GE 0/0/3', 'GE 0/0/4']
-                                    .map(label => ({label, value: label}))
+                                this.props.toNode.device.ports
+                                    .filter(port => !port.occupied)
+                                    .map(port => ({label: port.name, value: port.name}))
                             }
                             selected={this.state.toPort}
                             onSelect={item => this.setState({toPort: item.value})}>

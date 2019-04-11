@@ -1,8 +1,15 @@
-class Client {
+import Device from "./Device";
+
+class Client extends Device {
     constructor() {
+        super();
         this.gateway = '';
         this.ip = '';
         this.mask = '';
+        this.ports.push({
+            name: 'Ethernet 0/0/1',
+            occupied: false,
+        });
     }
 
     updateInfo(newInfo) {
