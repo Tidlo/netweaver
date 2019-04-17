@@ -9,8 +9,30 @@ class Router extends Device {
                 occupied: false,
             });
         }
-    }
+        this.routes = [
+            {
+                destination: '127.0.0.0',
+                mask: 8,
+                nextHop: "127.0.0.1"
+            },
+            {
+                destination: '127.0.0.1',
+                mask: 32,
+                nextHop: "127.0.0.1"
+            },
+            {
+                destination: '127.255.255.255',
+                mask: 32,
+                nextHop: "127.0.0.1"
+            },
+            {
+                destination: '255.255.255.255',
+                mask: 32,
+                nextHop: "127.0.0.1"
+            }
 
+        ];
+    }
 }
 
 export default Router;

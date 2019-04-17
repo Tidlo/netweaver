@@ -4,12 +4,14 @@ import React, {createRef} from "react";
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
-import {Button, Dialog, Pane} from "evergreen-ui";
+import {Button, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
 import Client from '../devices/Client'
 import Router from "../devices/Router";
 import Switch from "../devices/Switch";
+import SwitchConfigDialog from "./SwitchConfigDialog";
+import RouterConfigDialog from "./RouterConfigDialog";
 
 let nodes = new DataSet();
 
@@ -194,7 +196,19 @@ class Visnetwork extends React.Component {
     disablePortDialog() {
         this.setState({
             isPortDialogShown: false
-        })
+        });
+    }
+
+    disableSwitchDialog() {
+        this.setState({
+            isSwitchDialogShown: false,
+        });
+    }
+
+    disableRouterDialog() {
+        this.setState({
+            isRouterDialogShown: false,
+        });
     }
 
     updateClientNode(form) {
@@ -262,23 +276,18 @@ class Visnetwork extends React.Component {
                     toNode={this.state.toNode}
                 />
 
-                <Dialog
+                <RouterConfigDialog
                     isShown={this.state.isRouterDialogShown}
-                    title="路由器配置"
-                    intent="danger"
-                    onCloseComplete={() => this.setState({isClientDialogShown: false})}
-                    confirmLabel="Delete Something">
-                    Dialog content
-                </Dialog>
+                    disableRouterDialog={() => this.disableRouterDialog()}
+                    focusedNode={this.state.focusedNode}
+                />
 
-                <Dialog
+                <SwitchConfigDialog
                     isShown={this.state.isSwitchDialogShown}
-                    title="交换机配置"
-                    intent="danger"
-                    onCloseComplete={() => this.setState({isSwitchDialogShown: false})}
-                    confirmLabel="Delete Something">
-                    Dialog content
-                </Dialog>
+                    disableSwitchDialog={() => this.disableSwitchDialog()}
+                    focusedNode={this.state.focusedNode}
+                />
+
 
 
                 <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>

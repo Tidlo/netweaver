@@ -7,8 +7,13 @@ class Switch extends Device {
             this.ports.push({
                 name: 'GE 0/0/' + i,
                 occupied: false,
+                pvid: 1,
+                defaultVLAN: 1,
+                linkType: 'hybrid',
+
             })
         }
+
     }
 }
 

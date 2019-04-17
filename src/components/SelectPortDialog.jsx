@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Dialog, Icon, Pane, SelectMenu} from "evergreen-ui";
+import {Button, Dialog, Icon, Pane, SelectMenu, toaster} from "evergreen-ui";
 
 let fromDeviceIcon = 'cross';
 let toDeviceIcon = 'cross';
@@ -16,14 +16,23 @@ class SelectPortDialog extends React.Component {
     }
 
     handleConfirm = () => {
-        this.props.disablePortDialog();
-        let edgeInfo = {
-            ...this.props.edgeData,
-            fromPort: this.state.fromPort,
-            toPort: this.state.toPort,
-        };
-        this.props.confirmAddEdge(edgeInfo);
-        this.setState({fromPort: '', toPort: ''});
+        if (this.state.fromPort.length > 0 && this.state.toPort.length > 0) {
+            this.props.disablePortDialog();
+            let edgeInfo = {
+                ...this.props.edgeData,
+                fromPort: this.state.fromPort,
+                toPort: this.state.toPort,
+            };
+            this.props.confirmAddEdge(edgeInfo);
+            this.setState({fromPort: '', toPort: ''});
+        } else {
+
+            toaster.notify('请选择端口', {
+                id: 'notify-select-port',
+                duration: 1,
+            });
+        }
+
     };
 
     handleCancel = () => {
@@ -73,7 +82,7 @@ class SelectPortDialog extends React.Component {
                 intent="none"
                 onConfirm={this.handleConfirm}
                 onCancel={this.handleCancel}
-                onCloseComplete={this.props.disablePortDialog}
+                onCloseComplete={this.handleCancel}
                 confirmLabel="确认"
                 cancelLabel="取消">
                 <Pane
@@ -155,6 +164,7 @@ class SelectPortDialog extends React.Component {
                         </SelectMenu>
                     </Pane>
                 </Pane>
+
             </Dialog>);
     }
 }

@@ -94,7 +94,7 @@ class ClientConfigDialog extends Component {
                             this.setState({ipValidationMessage: 'IP 格式有误'})
                         }
                     }}
-                    defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.device.ip}
+                    defaultValue={this.props.focusedNode && this.props.focusedNode.device.ip}
                 />
                 <TextInputField
                     label="子网掩码"
