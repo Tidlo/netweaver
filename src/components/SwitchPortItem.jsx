@@ -12,7 +12,8 @@ class SwitchPortItem extends Component {
     render() {
         return (
             <Pane>
-                <Paragraph>{this.props.port.name}</Paragraph>
+                <Paragraph
+                    margin={4}>{this.props.port.name + " --> " + this.props.port.edgeData.to + "." + this.props.port.edgeData.toPort}</Paragraph>
                 <Pane marginLeft={12}>
                     <Text>端口模式</Text>
                     <SelectMenu

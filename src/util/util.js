@@ -89,8 +89,18 @@ let generateRouterCode = (network) => {
             rawString += "```ensp\n";
             rawString += "sys\n" +
                 "sysname " + node.label + "\n";
+
+            //generate code for port bind ip
+            occupiedPorts.forEach(port => {
+                rawString += "interface " + port.name + "\n";
+                rawString += "ip address " + port.bindIP + " " + port.bindMask + "\n";
+            });
+            rawString += "quit\n";
+            let i = 0;
             node.device.routes.forEach(route => {
-                rawString += "ip route-static " + route.destination + " " + route.mask + " " + route.nextHop + "\n";
+                i++;
+                if (i > 4)
+                    rawString += "ip route-static " + route.destination + " " + route.mask + " " + route.nextHop + "\n";
             });
         }
     });

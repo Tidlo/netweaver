@@ -7,6 +7,8 @@ class Router extends Device {
             this.ports.push({
                 name: 'Ethernet 0/0/' + i,
                 occupied: false,
+                bindIP: '',
+                bindMask: '',
             });
         }
         this.routes = [

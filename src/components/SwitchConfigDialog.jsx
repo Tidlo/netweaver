@@ -8,7 +8,7 @@ class SwitchConfigDialog extends Component {
         this.state = {
             allowPass: ['1'],
             selectedIndex: 0,
-            tabs: ['基础配置', '高级配置'],
+            tabs: ['基础配置'],
         };
     }
 
