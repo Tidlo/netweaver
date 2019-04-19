@@ -3,8 +3,10 @@ class Device {
         this.ports = [];
     }
 
-    occupyPort(portName) {
-        this.ports.find(port => port.name === portName).occupied = true;
+    occupyPort(portName, edgeData) {
+        let port = this.ports.find(port => port.name === portName);
+        port.occupied = true;
+        port.edgeData = edgeData;
     }
 }
 

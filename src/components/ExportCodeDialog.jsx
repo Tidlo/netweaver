@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Dialog} from "evergreen-ui";
 import ReactMarkdown from "react-markdown";
+import 'github-markdown-css/github-markdown.css'
+import '../index.css'
 
 class ExportCodeDialog extends Component {
     constructor(props) {
@@ -19,7 +21,9 @@ class ExportCodeDialog extends Component {
                 onCloseComplete={this.props.disableExportCodeDialog}
                 onConfirm={this.props.disableExportCodeDialog}
                 confirmLabel="确认">
-                <ReactMarkdown source={this.state.rawString}/>
+                <ReactMarkdown
+                    className={"markdown-body"}
+                    source={this.props.rawString}/>
             </Dialog>
         );
     }

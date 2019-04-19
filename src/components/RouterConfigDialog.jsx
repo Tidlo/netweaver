@@ -33,7 +33,7 @@ class RouterConfigDialog extends Component {
                 confirmLabel="确认"
                 cancelLabel="取消">
 
-                <Table height={200}>
+                <Table>
                     <Table.Head>
 
                         <Table.TextHeaderCell flex={1}>
@@ -55,7 +55,7 @@ class RouterConfigDialog extends Component {
                         && this.props.focusedNode.device
                         && this.props.focusedNode.device.routes
                         && this.props.focusedNode.device.routes.map(route => (
-                            <Table.Row key={route.destination} isSelectable
+                            <Table.Row key={route.destination}
                                        onSelect={() => console.log(route.destination)}>
                                 <Table.TextCell>{route.destination}</Table.TextCell>
                                 <Table.TextCell>{route.nextHop}</Table.TextCell>
@@ -98,6 +98,11 @@ class RouterConfigDialog extends Component {
                     <Button
                         onClick={() => {
                             console.log(this.state);
+                            this.props.focusedNode.device.addRoute({
+                                destination: this.state.destination,
+                                mask: this.state.mask,
+                                nextHop: this.state.nextHop,
+                            });
                             this.setState({
                                 destination: '',
                                 mask: '',

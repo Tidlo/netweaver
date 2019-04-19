@@ -15,6 +15,8 @@ import RouterConfigDialog from "./RouterConfigDialog";
 import ExportCodeDialog from "./ExportCodeDialog";
 import Header from "./Header";
 
+let util = require('../util/util.js');
+
 let nodes = new DataSet();
 
 // create an array with edges
@@ -99,6 +101,7 @@ class Visnetwork extends React.Component {
             isDeleteButtonShown: 'none',
             fromNode: {device: new Client()},
             toNode: {device: new Client()},
+            rawString: '',
         };
         //initialize network
         addSwitch();
@@ -146,7 +149,7 @@ class Visnetwork extends React.Component {
                 fromNode: nodes.get(data.from),
                 toNode: nodes.get(data.to),
             });
-            console.log(this.state.fromNode);
+            console.log(this.state.edgeData);
         };
 
         this.network = new Network(this.appRef.current, data, options);
@@ -172,6 +175,7 @@ class Visnetwork extends React.Component {
 
         this.network.on("doubleClick", function (params) {
             showDialog(params);
+            //console.log(this.state.focusedNode);
         });
         this.network.on("click", params => handleClick(params));
 
@@ -191,7 +195,11 @@ class Visnetwork extends React.Component {
     }
 
     showExportCodeDialog() {
-        this.setState({isExportCodeDialogShown: true})
+        let string = util.generateCode(this.network);
+        this.setState({
+            isExportCodeDialogShown: true,
+            rawString: string,
+        });
     }
 
     disableExportCodeDialog() {
@@ -251,8 +259,8 @@ class Visnetwork extends React.Component {
         if (typeof data.from === 'object')
             data.from = data.from.id;
 
-        this.state.fromNode.device.occupyPort(data.fromPort);
-        this.state.toNode.device.occupyPort(data.toPort);
+        this.state.fromNode.device.occupyPort(data.fromPort, data);
+        this.state.toNode.device.occupyPort(data.toPort, data);
         callBack(data);
     };
 
@@ -261,10 +269,15 @@ class Visnetwork extends React.Component {
         this.network.disableEditMode();
     };
 
+    generateCode = () => {
+
+    };
+
     render() {
         return (
             <Pane>
                 <Header
+                    network={this.network}
                     isShown={this.state.isExportCodeDialogShown}
                     disableExportCodeDialog={() => this.disableExportCodeDialog()}
                     showExportCodeDialog={() => this.showExportCodeDialog()}
@@ -308,6 +321,7 @@ class Visnetwork extends React.Component {
                 />
 
                 <ExportCodeDialog
+                    rawString={this.state.rawString}
                     isShown={this.state.isExportCodeDialogShown}
                     disableExportCodeDialog={() => this.disableExportCodeDialog()}
                 />

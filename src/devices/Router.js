@@ -37,6 +37,14 @@ class Router extends Device {
     deleteRoute(routeDestination) {
         this.routes = this.routes.filter(p => p.destination !== routeDestination);
     }
+
+    addRoute(info) {
+        this.routes.push({
+            destination: info.destination,
+            mask: info.mask,
+            nextHop: info.nextHop,
+        })
+    }
 }
 
 export default Router;

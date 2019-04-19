@@ -42,7 +42,7 @@ class SwitchPortItem extends Component {
                         display={this.props.port.linkType === 'trunk' ? 'inline-block' : 'none'}
                         tagProps={{color: 'green', isSolid: true}}
                         inputProps={{placeholder: '允许通过的 VLAN 号'}}
-                        values={this.state.allowPass}
+                        values={this.props.port.allowPass}
                         onChange={allowPass => {
                             this.setState({allowPass});
                             this.props.device.setPortAllowPass(this.props.port.name, allowPass);
@@ -57,15 +57,10 @@ class SwitchPortItem extends Component {
                             marginLeft={8}
                             name="text-input-name"
                             width={200}
-                            value={this.state.defaultVLAN}
-                            onChange={defaultVLAN => {
-                                this.setState({defaultVLAN});
-                                if (this.state.defaultVLAN > 0) {
-                                    //todo  fix this
-                                    this.props.port.defaultVLAN = defaultVLAN;
-                                    console.log(this.props.port.defaultVLAN);
-                                }
-
+                            value={this.props.port.defaultVLAN}
+                            onChange={e => {
+                                this.setState({defaultVLAN: e.target.value});
+                                this.props.port.defaultVLAN = e.target.value;
                             }}
                         />
 
