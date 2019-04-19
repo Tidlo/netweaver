@@ -11,7 +11,7 @@ class Header extends Component{
                 <Pane>
                     {/* Below you can see the marginRight property on a Button. */}
                     <Button marginRight={16}>重置</Button>
-                    <Button appearance="primary">导出</Button>
+                    <Button appearance="primary" onClick={this.props.showExportCodeDialog}>导出</Button>
                 </Pane>
             </Pane>
         );

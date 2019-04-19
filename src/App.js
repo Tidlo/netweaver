@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import './App.css';
 import Visnetwork from "./components/Visnetwork";
 import {Pane} from "evergreen-ui";
-import Header from "./components/Header"
 
 class App extends Component {
   render() {
     return (
         <Pane>
-            <Header/>
+            {/*<Header/>*/}
             <Pane marginLeft={12}>
                 <Visnetwork className="network"/>
             </Pane>

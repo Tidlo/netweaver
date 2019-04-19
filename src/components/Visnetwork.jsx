@@ -12,6 +12,8 @@ import Router from "../devices/Router";
 import Switch from "../devices/Switch";
 import SwitchConfigDialog from "./SwitchConfigDialog";
 import RouterConfigDialog from "./RouterConfigDialog";
+import ExportCodeDialog from "./ExportCodeDialog";
+import Header from "./Header";
 
 let nodes = new DataSet();
 
@@ -90,6 +92,7 @@ class Visnetwork extends React.Component {
             isRouterDialogShown: false,
             isSwitchDialogShown: false,
             isPortDialogShown: false,
+            isExportCodeDialogShown: false,
             focusedNode: null,
             nodes: null,
             edgeData: {},
@@ -187,6 +190,16 @@ class Visnetwork extends React.Component {
         });
     }
 
+    showExportCodeDialog() {
+        this.setState({isExportCodeDialogShown: true})
+    }
+
+    disableExportCodeDialog() {
+        this.setState({
+            isExportCodeDialogShown: false
+        });
+    };
+
     disableClientDialog() {
         this.setState({
             isClientDialogShown: false
@@ -251,6 +264,11 @@ class Visnetwork extends React.Component {
     render() {
         return (
             <Pane>
+                <Header
+                    isShown={this.state.isExportCodeDialogShown}
+                    disableExportCodeDialog={() => this.disableExportCodeDialog()}
+                    showExportCodeDialog={() => this.showExportCodeDialog()}
+                />
                 <Pane
                     width={1000}
                     marginTop={4}
@@ -280,6 +298,7 @@ class Visnetwork extends React.Component {
                     isShown={this.state.isRouterDialogShown}
                     disableRouterDialog={() => this.disableRouterDialog()}
                     focusedNode={this.state.focusedNode}
+                    device={this.state.focusedNode}
                 />
 
                 <SwitchConfigDialog
@@ -288,6 +307,10 @@ class Visnetwork extends React.Component {
                     focusedNode={this.state.focusedNode}
                 />
 
+                <ExportCodeDialog
+                    isShown={this.state.isExportCodeDialogShown}
+                    disableExportCodeDialog={() => this.disableExportCodeDialog()}
+                />
 
 
                 <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>

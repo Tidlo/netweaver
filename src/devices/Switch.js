@@ -10,10 +10,14 @@ class Switch extends Device {
                 pvid: 1,
                 defaultVLAN: 1,
                 linkType: 'hybrid',
-
+                allowPass: [],
             })
         }
+    }
 
+    setPortAllowPass(portName, allowPass) {
+        let port = this.ports.find(port => port.name === portName);
+        port.allowPass = [...new Set(port.allowPass.concat(allowPass))];
     }
 }
 

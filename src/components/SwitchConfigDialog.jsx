@@ -68,7 +68,9 @@ class SwitchConfigDialog extends Component {
                                     index === 0 ? this.props.focusedNode.device.ports.filter(port => port.occupied)
                                             .map(port =>
                                                 <SwitchPortItem
+                                                    key={port.name}
                                                     port={port}
+                                                    device={this.props.focusedNode.device}
                                                     updatePortLinkType={(p) => this.updatePortLinkType(p)}
                                                 />
                                             )

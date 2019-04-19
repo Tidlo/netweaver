@@ -7,6 +7,7 @@
     "evergreen-ui": "^4.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-markdown": "^4.0.8",
     "react-scripts": "2.1.8",
     "vis": "^4.21.0"
   },

@@ -33,6 +33,10 @@ class Router extends Device {
 
         ];
     }
+
+    deleteRoute(routeDestination) {
+        this.routes = this.routes.filter(p => p.destination !== routeDestination);
+    }
 }
 
 export default Router;
