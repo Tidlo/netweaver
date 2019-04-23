@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Pane, Paragraph, SelectMenu, TagInput, Text, TextInput} from "evergreen-ui";
 
+let util = require('../util/util');
 class SwitchPortItem extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,7 @@ class SwitchPortItem extends Component {
         return (
             <Pane>
                 <Paragraph
-                    margin={4}>{this.props.port.name + " --> " + this.props.port.edgeData.to + "." + this.props.port.edgeData.toPort}</Paragraph>
+                    margin={4}>{this.props.port.name + " --> " + util.getDestination(this.props.focusedNode, this.props.port)}</Paragraph>
                 <Pane marginLeft={12}>
                     <Text>端口模式</Text>
                     <SelectMenu

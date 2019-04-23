@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Dialog, IconButton, Pane, Tab, Table, Tablist, TextInputField} from "evergreen-ui";
 
+let util = require('../util/util');
 const ipRegex = "\\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\\b";
 
 class RouterConfigDialog extends Component {
@@ -67,7 +68,7 @@ class RouterConfigDialog extends Component {
                                             <TextInputField
                                                 flex={2}
                                                 margin={12}
-                                                label={port.name}
+                                                label={port.name + " --> " + util.getDestination(this.props.focusedNode, port)}
                                                 description={"IP地址"}
                                                 placeholder={"端口绑定IP"}
                                                 validationMessage={this.state.ipValidationMessage}
@@ -182,7 +183,7 @@ class RouterConfigDialog extends Component {
                     </Pane>
                 </Pane>
             </Dialog>
-        )
+        );
     }
 }
 

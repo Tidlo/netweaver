@@ -20,7 +20,9 @@ class ExportCodeDialog extends Component {
                 intent="none"
                 onCloseComplete={this.props.disableExportCodeDialog}
                 onConfirm={this.props.disableExportCodeDialog}
-                confirmLabel="确认">
+                confirmLabel="确认"
+                cancelLabel={'取消'}
+            >
                 <ReactMarkdown
                     className={"markdown-body"}
                     source={this.props.rawString}/>

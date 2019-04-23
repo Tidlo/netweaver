@@ -98,7 +98,7 @@ class ClientConfigDialog extends Component {
                 />
                 <TextInputField
                     label="子网掩码"
-                    placeholder="255.255.255.0"
+                    placeholder="24"
                     onChange={e => this.setState({editingClientMask: e.target.value})}
                     defaultValue={this.props.focusedNode == null ? '' : this.props.focusedNode.device.mask}
                 />

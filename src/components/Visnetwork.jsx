@@ -4,7 +4,7 @@ import React, {createRef} from "react";
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
-import {Button, Pane} from "evergreen-ui";
+import {Button, Heading, Pane, TextInputField} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
 import Client from '../devices/Client'
@@ -14,6 +14,8 @@ import SwitchConfigDialog from "./SwitchConfigDialog";
 import RouterConfigDialog from "./RouterConfigDialog";
 import ExportCodeDialog from "./ExportCodeDialog";
 import Header from "./Header";
+import ReactMarkdown from "react-markdown";
+import '../App.css';
 
 let util = require('../util/util.js');
 
@@ -102,22 +104,26 @@ class Visnetwork extends React.Component {
             fromNode: {device: new Client()},
             toNode: {device: new Client()},
             rawString: '',
+            selectedEdge: null,
+            testNode1: '',
+            testNode2: '',
+            testResult: null,
         };
         //initialize network
-        addSwitch();
-        addSwitch();
-        addClient();
-        addClient();
-        addClient();
-        addClient();
-        addRouter();
+        // addSwitch();
+        // addSwitch();
+        // addClient();
+        // addClient();
+        // addClient();
+        // addClient();
+        // addRouter();
         edges = new DataSet([
-            {from: 'client1', to: 'switch1'},
-            {from: 'client2', to: 'switch1'},
-            {from: 'client3', to: 'switch2'},
-            {from: 'client4', to: 'switch2'},
-            {from: 'router1', to: 'switch1'},
-            {from: 'router1', to: 'switch2'},
+            // {from: 'client1', to: 'switch1'},
+            // {from: 'client2', to: 'switch1'},
+            // {from: 'client3', to: 'switch2'},
+            // {from: 'client4', to: 'switch2'},
+            // {from: 'router1', to: 'switch1'},
+            // {from: 'router1', to: 'switch2'},
         ]);
         data = {nodes, edges};
     }
@@ -182,7 +188,10 @@ class Visnetwork extends React.Component {
         let handleClick = (params) => {
             console.log(params.edges);
             if (params.edges.length > 0 || params.nodes.length > 0) {
-                this.setState({isDeleteButtonShown: 'inline-block',});
+                this.setState({
+                    isDeleteButtonShown: 'inline-block',
+                    selectedEdge: params.edges[0],
+                });
             } else {
                 this.setState({isDeleteButtonShown: 'none',});
             }
@@ -248,7 +257,6 @@ class Visnetwork extends React.Component {
      * handler for add edge button to trigger callback.
      */
     addEdge = () => {
-        console.log();
         this.network.addEdgeMode();
     };
 
@@ -269,11 +277,20 @@ class Visnetwork extends React.Component {
         this.network.disableEditMode();
     };
 
-    generateCode = () => {
 
+    deleteSelected = () => {
+        let selectedEdge = this.network.body.data.edges.get(this.state.selectedEdge);
+        console.log(selectedEdge);
+        if (selectedEdge.length > 0) {
+            this.network.body.data.nodes.get(selectedEdge.from).device.releasePort(selectedEdge.fromPort);
+            this.network.body.data.nodes.get(selectedEdge.to).device.releasePort(selectedEdge.toPort);
+        }
+
+        this.network.deleteSelected();
     };
 
     render() {
+        const {hotKeys, ...remainingProps} = this.props;
         return (
             <Pane>
                 <Header
@@ -283,12 +300,77 @@ class Visnetwork extends React.Component {
                     showExportCodeDialog={() => this.showExportCodeDialog()}
                 />
                 <Pane
-                    width={1000}
-                    marginTop={4}
-                    marginBottom={4}
-                    elevation={1}>
-                    <div className="network" ref={this.appRef}/>
+                    display={"flex"}
+                    alignItems={'center'}
+                    flexDirection={"column"}
+                    justifyContent={'space-around'}>
+                    <Pane
+                        width={1000}
+                        marginTop={4}
+                        marginBottom={4}
+                        elevation={1}>
+                        <div className="network" ref={this.appRef}/>
+                    </Pane>
+                    <Pane
+                        width={1000}
+                        elevation={0}
+                        padding={8}>
+                        <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>
+                        <Button marginRight={12} height={40} iconBefore="exchange" onClick={addSwitch}>交换机</Button>
+                        <Button marginRight={12} height={40} iconBefore="search-around" onClick={addRouter}>路由器</Button>
+                        <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
+                        <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
+                                display={this.state.isDeleteButtonShown}
+                                onClick={() => this.deleteSelected()}>删除</Button>
+
+                    </Pane>
+                    <Pane
+                        width={1000}
+                        elevation={0}
+                        padding={8}>
+                        <TextInputField
+                            width={200}
+                            display={'inline-block'}
+                            label={'源节点'}
+                            placeholder={"节点标签"}
+                            onChange={e => this.setState({testNode1: e.target.value})}
+                        />
+
+                        <TextInputField
+                            width={200}
+                            marginLeft={12}
+                            display={'inline-block'}
+                            label={'目标节点'}
+                            placeholder={"节点标签"}
+                            onChange={e => this.setState({testNode2: e.target.value})}
+                        />
+                        <Button
+                            marginLeft={12}
+                            height={32}
+                            display={'inline-block'}
+                            appearance="primary"
+                            onClick={() => {
+                                let testResult = util.pingTest(this.network, this.state.testNode1, this.state.testNode2);
+                                this.setState({testResult});
+                            }}>
+                            连通性测试
+                        </Button>
+                        <Pane display={"flex"} flexDirection={'column'} alignItems={'center'}
+                              justifyContent={'space-around'}>
+                            <Heading size={500} marginTop="default">{this.state.testResult ? '最短路径' : ''}</Heading>
+                            <Heading size={600}
+                                     marginTop="default">{this.state.testResult ? this.state.testResult.path.join(' -> ') : ''}</Heading>
+                        </Pane>
+                    </Pane>
+                    <Pane
+                        elevation={1}
+                        width={1000}>
+                        <ReactMarkdown
+                            className={"markdown-body"}
+                            source={this.state.rawString}/>
+                    </Pane>
                 </Pane>
+
 
                 <ClientConfigDialog
                     disableClientDialog={() => this.disableClientDialog()}
@@ -325,15 +407,6 @@ class Visnetwork extends React.Component {
                     isShown={this.state.isExportCodeDialogShown}
                     disableExportCodeDialog={() => this.disableExportCodeDialog()}
                 />
-
-
-                <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>
-                <Button marginRight={12} height={40} iconBefore="exchange" onClick={addSwitch}>交换机</Button>
-                <Button marginRight={12} height={40} iconBefore="search-around" onClick={addRouter}>路由器</Button>
-                <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
-                <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
-                        display={this.state.isDeleteButtonShown}
-                        onClick={() => this.network.deleteSelected()}>删除</Button>
 
             </Pane>
         );
