@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Heading, Pane, SelectMenu} from "evergreen-ui";
+import {Button, Card, Heading, Pane, SelectMenu} from "evergreen-ui";
 
 let util = require('../util/util.js');
 
@@ -16,11 +16,12 @@ class PingTestPanel extends React.Component {
     render() {
         // noinspection ThisExpressionReferencesGlobalObjectJS
         return (
-            <Pane
+            <Card
                 width={900}
                 elevation={0}
-                padding={8}>
-
+                padding={12}>
+                <Heading>连通性测试</Heading>
+                <Pane marginTop={12}>
                 <SelectMenu
                     hasTitle={false}
                     hasFilter={false}
@@ -72,7 +73,8 @@ class PingTestPanel extends React.Component {
                     <Heading size={600}
                              marginTop="default">{this.state.testResult ? this.state.testResult.path.join(' -> ') : '不存在通路'}</Heading>
                 </Pane>
-            </Pane>
+                </Pane>
+            </Card>
         );
     }
 }

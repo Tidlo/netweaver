@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/util.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +23,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="496">
-                    <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+                  <state relative-caret-position="217">
+                    <caret line="343" column="52" lean-forward="true" selection-start-line="343" selection-start-column="52" selection-end-line="343" selection-end-column="52" />
                     <folding>
                       <element signature="e#0#37#0" expanded="true" />
                       <element signature="e#104#147#0" expanded="true" />
@@ -44,10 +43,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="268">
+              <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,16 +168,17 @@
         <option value="$PROJECT_DIR$/src/components/Header.jsx" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/components/SelectPortDialog.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Visnetwork.jsx" />
         <option value="$PROJECT_DIR$/src/util/util.js" />
+        <option value="$PROJECT_DIR$/src/components/Visnetwork.jsx" />
         <option value="$PROJECT_DIR$/src/components/PingTestPanel.jsx" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
-    <option name="width" value="976" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="199" />
+    <option name="y" value="-29" />
+    <option name="width" value="1303" />
+    <option name="height" value="664" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -303,7 +303,7 @@
       <workItem from="1555585492874" duration="12562000" />
       <workItem from="1555634885917" duration="45743000" />
       <workItem from="1555720780089" duration="3742000" />
-      <workItem from="1555989981269" duration="12978000" />
+      <workItem from="1555989981269" duration="14363000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -382,11 +382,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555990478998</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Uses SelectMenu replace InputText for select node to test connection.">
+      <created>1556021012507</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556021012507</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165460000" />
+    <option name="totallyTimeSpent" value="166845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -401,7 +408,7 @@
     <frame x="768" y="0" width="787" height="847" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26764315" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26764315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -437,7 +444,8 @@
     <MESSAGE value="Implemented export configuration code for switch." />
     <MESSAGE value="Implemented export configuration code for router." />
     <MESSAGE value="Modify Readme.md&#10;&#10;Add some descriptions about this project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify Readme.md&#10;&#10;Add some descriptions about this project." />
+    <MESSAGE value="Uses SelectMenu replace InputText for select node to test connection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Uses SelectMenu replace InputText for select node to test connection." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -632,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+        <state relative-caret-position="217">
+          <caret line="343" column="52" lean-forward="true" selection-start-line="343" selection-start-column="52" selection-end-line="343" selection-end-column="52" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#104#147#0" expanded="true" />
@@ -643,10 +651,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        <state relative-caret-position="268">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
