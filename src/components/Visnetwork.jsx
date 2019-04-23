@@ -4,7 +4,7 @@ import React, {createRef} from "react";
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
-import {Button, Heading, Pane, TextInputField} from "evergreen-ui";
+import {Button, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
 import Client from '../devices/Client'
@@ -16,6 +16,7 @@ import ExportCodeDialog from "./ExportCodeDialog";
 import Header from "./Header";
 import ReactMarkdown from "react-markdown";
 import '../App.css';
+import PingTestPanel from "./PingTestPanel";
 
 let util = require('../util/util.js');
 
@@ -49,6 +50,7 @@ function addClient() {
     } catch (err) {
         alert(err);
     }
+    return id;
 }
 
 function addRouter() {
@@ -65,6 +67,7 @@ function addRouter() {
     } catch (err) {
         alert(err);
     }
+    return id;
 }
 
 function addSwitch() {
@@ -81,6 +84,7 @@ function addSwitch() {
     } catch (err) {
         alert(err);
     }
+    return id;
 }
 
 
@@ -97,17 +101,17 @@ class Visnetwork extends React.Component {
             isSwitchDialogShown: false,
             isPortDialogShown: false,
             isExportCodeDialogShown: false,
-            focusedNode: null,
-            nodes: null,
+            focusedNode: null,  //currently focused node while dialog opening
+            nodes: [],    //current nodes IDs
+            edges: null,    //reference to this.network.body.edges
             edgeData: {},
             isDeleteButtonShown: 'none',
             fromNode: {device: new Client()},
             toNode: {device: new Client()},
             rawString: '',
+            network: null,
             selectedEdge: null,
-            testNode1: '',
-            testNode2: '',
-            testResult: null,
+            width: 900,
         };
         //initialize network
         // addSwitch();
@@ -201,6 +205,10 @@ class Visnetwork extends React.Component {
             params.event = "[original event]";
             console.log(JSON.stringify(params, null, 4));
         });
+
+        this.setState({network: this.network});  //state won't change in this scope
+
+        this.forceUpdate();
     }
 
     showExportCodeDialog() {
@@ -305,66 +313,37 @@ class Visnetwork extends React.Component {
                     flexDirection={"column"}
                     justifyContent={'space-around'}>
                     <Pane
-                        width={1000}
+                        width={this.state.width}
                         marginTop={4}
                         marginBottom={4}
                         elevation={1}>
                         <div className="network" ref={this.appRef}/>
                     </Pane>
                     <Pane
-                        width={1000}
+                        width={this.state.width}
                         elevation={0}
                         padding={8}>
-                        <Button marginRight={12} height={40} iconBefore="desktop" onClick={addClient}>主机</Button>
-                        <Button marginRight={12} height={40} iconBefore="exchange" onClick={addSwitch}>交换机</Button>
-                        <Button marginRight={12} height={40} iconBefore="search-around" onClick={addRouter}>路由器</Button>
+                        <Button marginRight={12} height={40} iconBefore="desktop" onClick={() => {
+                            //this set state will trigger update for PingTestPanel component
+                            this.setState({nodes: [...this.state.nodes, addClient()]}); //this is
+                        }}>主机</Button>
+                        <Button marginRight={12} height={40} iconBefore="exchange"
+                                onClick={() => this.setState({nodes: [...this.state.nodes, addSwitch()]})}>交换机</Button>
+                        <Button marginRight={12} height={40} iconBefore="search-around"
+                                onClick={() => this.setState({nodes: [...this.state.nodes, addRouter()]})}>路由器</Button>
                         <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
                         <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
                                 display={this.state.isDeleteButtonShown}
                                 onClick={() => this.deleteSelected()}>删除</Button>
 
                     </Pane>
-                    <Pane
-                        width={1000}
-                        elevation={0}
-                        padding={8}>
-                        <TextInputField
-                            width={200}
-                            display={'inline-block'}
-                            label={'源节点'}
-                            placeholder={"节点标签"}
-                            onChange={e => this.setState({testNode1: e.target.value})}
-                        />
-
-                        <TextInputField
-                            width={200}
-                            marginLeft={12}
-                            display={'inline-block'}
-                            label={'目标节点'}
-                            placeholder={"节点标签"}
-                            onChange={e => this.setState({testNode2: e.target.value})}
-                        />
-                        <Button
-                            marginLeft={12}
-                            height={32}
-                            display={'inline-block'}
-                            appearance="primary"
-                            onClick={() => {
-                                let testResult = util.pingTest(this.network, this.state.testNode1, this.state.testNode2);
-                                this.setState({testResult});
-                            }}>
-                            连通性测试
-                        </Button>
-                        <Pane display={"flex"} flexDirection={'column'} alignItems={'center'}
-                              justifyContent={'space-around'}>
-                            <Heading size={500} marginTop="default">{this.state.testResult ? '最短路径' : ''}</Heading>
-                            <Heading size={600}
-                                     marginTop="default">{this.state.testResult ? this.state.testResult.path.join(' -> ') : ''}</Heading>
-                        </Pane>
-                    </Pane>
+                    <PingTestPanel
+                        nodes={this.state.nodes}
+                        network={this.state.network}
+                    />
                     <Pane
                         elevation={1}
-                        width={1000}>
+                        width={this.state.width}>
                         <ReactMarkdown
                             className={"markdown-body"}
                             source={this.state.rawString}/>

@@ -263,12 +263,14 @@ let pingTest = (network, node1, node2) => {
     });
 
     let path = shortestPath(neighborsOf, node1, node2);
+    // in case there is no path between two node
+    if (path === null) {
+        return null;
+    }
     let passStatus = [];
     if (path.length > 1) {
 
-
         //traverse from source to destination
-
         let prev = node1;
         let current = path[1];
         let next = path[2];
@@ -335,9 +337,7 @@ let pingTest = (network, node1, node2) => {
             prev = current;
             current = next;
             console.log(passStatus);
-            //}else{
             passStatus.push(false);
-            //}
         }
         console.log(passStatus);
     }
@@ -385,21 +385,4 @@ function shortestPath(neighborsOf, source, target) {
     return null;
 }
 
-let DFS = (source, neighborsOf) => {
-    let visited = {source: true};
-    let tail = 0;
-    let queue = [{vertex: source, count: 0}];
-    while (tail < queue.length) {
-        let u = queue[tail].vertex,
-            count = queue[tail++].count;
-        console.log('distance from ' + source + ' to ' + u + ': ' + count);
-        neighborsOf[u].forEach(function (v) {
-            if (!visited[v]) {
-                visited[v] = true;
-                queue.push({vertex: v, count: count + 1});
-            }
-        });
-    }
-};
-
-export {generateCode, getDestination, judge, pingTest};
+export {generateCode, getDestination, pingTest};

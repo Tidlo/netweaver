@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/util/getDestination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Focil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Focil.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ClientConfigDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientConfigDialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ExportCodeDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExportCodeDialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RouterConfigDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterConfigDialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SwitchConfigDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SwitchConfigDialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SwitchPortItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SwitchPortItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/devices/Device.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Device.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/util.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,15 +16,50 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="496">
+                    <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+                    <folding>
+                      <element signature="e#0#37#0" expanded="true" />
+                      <element signature="e#104#147#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+            <state relative-caret-position="186">
+              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/SelectPortDialog.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,10 +68,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="382">
+              <caret line="269" column="24" lean-forward="true" selection-start-line="269" selection-start-column="24" selection-end-line="269" selection-end-column="24" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/getDestination.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -56,6 +84,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
               <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="1" selection-end-column="99" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -64,25 +101,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2077">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="248">
-                <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              </first_editor>
-              <second_editor />
+            <state relative-caret-position="124">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -103,12 +125,15 @@
       <find>this.state.focusedNode</find>
       <find>ip</find>
       <find>focused</find>
-      <find>addClient</find>
       <find>addEdge</find>
       <find>showExport</find>
       <find>delete</find>
       <find>console.log</find>
       <find>showExportCodeDialog</find>
+      <find>addClient</find>
+      <find>network</find>
+      <find>onclick</find>
+      <find>this.props.nodes</find>
     </findStrings>
     <replaceStrings>
       <replace>this.props.focusedNode</replace>
@@ -128,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/components/visnetwork.jsx" />
         <option value="$PROJECT_DIR$/src/devices/Devices.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/components/SelectPortDialog.jsx" />
         <option value="$PROJECT_DIR$/src/util.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/devices/Client.js" />
@@ -141,19 +165,20 @@
         <option value="$PROJECT_DIR$/src/components/RouterConfigDialog.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/devices/Device.js" />
-        <option value="$PROJECT_DIR$/src/util/util.js" />
         <option value="$PROJECT_DIR$/src/components/ExportCodeDialog.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Visnetwork.jsx" />
         <option value="$PROJECT_DIR$/src/components/Header.jsx" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/components/SelectPortDialog.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Visnetwork.jsx" />
+        <option value="$PROJECT_DIR$/src/util/util.js" />
+        <option value="$PROJECT_DIR$/src/components/PingTestPanel.jsx" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="513" />
-    <option name="y" value="172" />
-    <option name="width" value="1303" />
-    <option name="height" value="664" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="976" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -278,7 +303,7 @@
       <workItem from="1555585492874" duration="12562000" />
       <workItem from="1555634885917" duration="45743000" />
       <workItem from="1555720780089" duration="3742000" />
-      <workItem from="1555989981269" duration="407000" />
+      <workItem from="1555989981269" duration="12978000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -350,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555661172160</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Modify Readme.md&#10;&#10;Add some descriptions about this project.">
+      <created>1555990478998</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1555990478998</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152889000" />
+    <option name="totallyTimeSpent" value="165460000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,16 +398,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1563" height="855" extended-state="6" />
+    <frame x="768" y="0" width="787" height="847" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17485265" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26764315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32863188" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29567644" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32722145" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29149234" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -404,7 +436,8 @@
     <MESSAGE value="Implementing export code dialog." />
     <MESSAGE value="Implemented export configuration code for switch." />
     <MESSAGE value="Implemented export configuration code for router." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented export configuration code for router." />
+    <MESSAGE value="Modify Readme.md&#10;&#10;Add some descriptions about this project." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify Readme.md&#10;&#10;Add some descriptions about this project." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -474,9 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/getDestination.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/devices/Client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
@@ -522,16 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SelectPortDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Header.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -556,40 +576,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ExportCodeDialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2077">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="124">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -600,6 +597,57 @@
             <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/getDestination.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="99" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="269" column="24" lean-forward="true" selection-start-line="269" selection-start-column="24" selection-end-line="269" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SelectPortDialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#104#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
