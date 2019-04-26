@@ -18,6 +18,7 @@ import Header from "./Header";
 import ReactMarkdown from "react-markdown";
 import '../App.css';
 import PingTestPanel from "./PingTestPanel";
+import Footer from "./Footer";
 
 let util = require('../util/util.js');
 
@@ -365,6 +366,7 @@ class Visnetwork extends React.Component {
                             network={this.state.network}
                         />
                         <Card
+                            display={this.state.rawString ? 'block' : 'none'}
                             background={'white'}
                             elevation={1}
                             id="manual"
@@ -375,7 +377,7 @@ class Visnetwork extends React.Component {
                         </Card>
                     </Pane>
 
-
+                    {/*dialogs*/}
                     <ClientConfigDialog
                         disableClientDialog={() => this.disableClientDialog()}
                         isShown={this.state.isClientDialogShown}
@@ -411,7 +413,7 @@ class Visnetwork extends React.Component {
                         isShown={this.state.isExportCodeDialogShown}
                         disableExportCodeDialog={() => this.disableExportCodeDialog()}
                     />
-
+                    <Footer/>
                 </Pane>
             </HotKeys>
         );
