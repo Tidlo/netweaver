@@ -36,3 +36,13 @@
     height: 490px;
   width: 1000px;
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #manual *, #topology * {
+    visibility: visible;
+  }
+}

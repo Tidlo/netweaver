@@ -32,6 +32,8 @@ let routerNumbers = 1;
 let clientNumbers = 1;
 let switchNumbers = 1;
 
+let dataURL = '';
+
 let callBack = function () {
 };
 
@@ -101,6 +103,7 @@ class Visnetwork extends React.Component {
             isSwitchDialogShown: false,
             isPortDialogShown: false,
             isExportCodeDialogShown: false,
+            isPrintManualButtonShown: false,
             focusedNode: null,  //currently focused node while dialog opening
             nodes: [],    //current nodes IDs
             edges: null,    //reference to this.network.body.edges
@@ -206,6 +209,10 @@ class Visnetwork extends React.Component {
             console.log(JSON.stringify(params, null, 4));
         });
 
+        this.network.on("afterDrawing", function (ctx) {
+            dataURL = ctx.canvas.toDataURL();
+        });
+
         this.setState({network: this.network});  //state won't change in this scope
 
         this.forceUpdate();
@@ -215,6 +222,7 @@ class Visnetwork extends React.Component {
         let string = util.generateCode(this.network);
         this.setState({
             isExportCodeDialogShown: true,
+            isPrintManualButtonShown: true,
             rawString: string,
         });
     }
@@ -296,6 +304,9 @@ class Visnetwork extends React.Component {
 
         this.network.deleteSelected();
     };
+    printManual = () => {
+        window.print();
+    };
 
     render() {
         const {hotKeys, ...remainingProps} = this.props;
@@ -304,8 +315,10 @@ class Visnetwork extends React.Component {
                 <Header
                     network={this.network}
                     isShown={this.state.isExportCodeDialogShown}
+                    isPrintManualButtonShown={this.state.isPrintManualButtonShown}
                     disableExportCodeDialog={() => this.disableExportCodeDialog()}
                     showExportCodeDialog={() => this.showExportCodeDialog()}
+                    printManual={() => this.printManual()}
                 />
                 <Pane
                     display={"flex"}
@@ -320,7 +333,7 @@ class Visnetwork extends React.Component {
                         <Pane
                             width={this.state.width}
                             borderBottom={'muted'}>
-                            <div className="network" ref={this.appRef}/>
+                            <div id={'topology'} className="network" ref={this.appRef}/>
                         </Pane>
                         <Pane
                             width={this.state.width}
@@ -347,6 +360,7 @@ class Visnetwork extends React.Component {
                     <Card
                         background={'white'}
                         elevation={1}
+                        id="manual"
                         width={this.state.width}>
                         <ReactMarkdown
                             className={"markdown-body"}

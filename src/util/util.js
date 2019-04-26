@@ -102,6 +102,7 @@ let generateRouterCode = (network) => {
                 if (i > 4)
                     rawString += "ip route-static " + route.destination + " " + route.mask + " " + route.nextHop + "\n";
             });
+            rawString += "```\n";
         }
     });
     return rawString;

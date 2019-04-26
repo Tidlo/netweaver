@@ -21,8 +21,7 @@ class PingTestPanel extends React.Component {
                 width={900}
                 elevation={0}
                 padding={12}
-                marginBottom={12}
-            >
+                marginBottom={12}>
                 <Heading>连通性测试</Heading>
                 <Pane marginTop={12}>
                 <SelectMenu
