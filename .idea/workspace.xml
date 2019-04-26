@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo_full_size.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,9 +21,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
               <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -42,10 +30,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="206">
               <caret line="391" column="18" lean-forward="true" selection-start-line="391" selection-start-column="18" selection-end-line="391" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-                <element signature="e#104#147#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -55,9 +39,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="279">
               <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +47,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="93">
-                <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+              <first_editor relative-caret-position="31">
+                <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
               </first_editor>
               <second_editor />
             </state>
@@ -198,8 +179,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="457" />
+    <option name="y" value="231" />
     <option name="width" value="1305" />
     <option name="height" value="665" />
   </component>
@@ -339,7 +320,7 @@
       <workItem from="1555634885917" duration="45743000" />
       <workItem from="1555720780089" duration="3742000" />
       <workItem from="1555989981269" duration="15210000" />
-      <workItem from="1556259361427" duration="4902000" />
+      <workItem from="1556259361427" duration="5661000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -432,11 +413,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556022250728</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add Logos.">
+      <created>1556266534432</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1556266534432</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add Logos.">
+      <created>1556267013515</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1556267013515</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172594000" />
+    <option name="totallyTimeSpent" value="173353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -489,7 +484,8 @@
     <MESSAGE value="Modify Readme.md&#10;&#10;Add some descriptions about this project." />
     <MESSAGE value="Uses SelectMenu replace InputText for select node to test connection." />
     <MESSAGE value="Adjust UI detail." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust UI detail." />
+    <MESSAGE value="Add Logos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Logos." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -645,9 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -655,10 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="391" column="18" lean-forward="true" selection-start-line="391" selection-start-column="18" selection-end-line="391" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="e#104#147#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -699,17 +688,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="93">
-            <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+          <first_editor relative-caret-position="31">
+            <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           </first_editor>
           <second_editor />
         </state>
