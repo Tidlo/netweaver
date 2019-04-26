@@ -73,7 +73,6 @@ class PingTestPanel extends React.Component {
                       justifyContent={'space-around'}>
                     <Heading size={500} marginTop="default">{this.state.testResult ? '最短路径' : ''}</Heading>
                     <Heading size={600}
-
                              marginTop="default">{this.state.testResult ? this.state.testResult.path.join(' -> ') : '不存在通路'}</Heading>
                 </Pane>
                 </Pane>

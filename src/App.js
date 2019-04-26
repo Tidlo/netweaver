@@ -2,28 +2,28 @@ import React, {Component} from 'react';
 import './App.css';
 import Visnetwork from "./components/Visnetwork";
 import {Pane} from "evergreen-ui";
-import {withHotKeys} from "react-hotkeys";
+import {HotKeys} from "react-hotkeys";
 
 
 const keyMap = {
-    TEST: "t"
+    DELETE_SELECTED: "del",
+    ADD_ROUTER: "r",
+    ADD_SWITCH: "s",
+    ADD_CLIENT: "c",
+    ADD_EDGE: ["e", "l"],
 };
 
-const handlers = {
-    TEST: () => console.log("Test")
-};
 
 class App extends Component {
   render() {
-      const visnetwork = withHotKeys(Visnetwork);
     return (
-        <Pane>
-            {/*<Header/>*/}
-            <Pane marginLeft={12}>
-                <Visnetwork className="network" keyMap={keyMap} handlers={handlers}/>
+        <HotKeys keyMap={keyMap}>
+            <Pane>
+                <Pane marginLeft={12}>
+                    <Visnetwork className="network"/>
+                </Pane>
             </Pane>
-        </Pane>
-
+        </HotKeys>
     );
   }
 }

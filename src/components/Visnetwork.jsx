@@ -1,5 +1,6 @@
 import {DataSet, Network} from 'vis';
 import React, {createRef} from "react";
+import {HotKeys} from "react-hotkeys";
 // import local resources
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
@@ -193,7 +194,6 @@ class Visnetwork extends React.Component {
         this.network.on("click", params => handleClick(params));
 
         let handleClick = (params) => {
-            console.log(params.edges);
             if (params.edges.length > 0 || params.nodes.length > 0) {
                 this.setState({
                     isDeleteButtonShown: 'inline-block',
@@ -297,7 +297,7 @@ class Visnetwork extends React.Component {
     deleteSelected = () => {
         let selectedEdge = this.network.body.data.edges.get(this.state.selectedEdge);
         console.log(selectedEdge);
-        if (selectedEdge.length > 0) {
+        if (selectedEdge && selectedEdge.length > 0) {
             this.network.body.data.nodes.get(selectedEdge.from).device.releasePort(selectedEdge.fromPort);
             this.network.body.data.nodes.get(selectedEdge.to).device.releasePort(selectedEdge.toPort);
         }
@@ -309,103 +309,111 @@ class Visnetwork extends React.Component {
     };
 
     render() {
-        const {hotKeys, ...remainingProps} = this.props;
+        const hotKeyHandlers = {
+            DELETE_SELECTED: this.deleteSelected,
+            ADD_ROUTER: addRouter,
+            ADD_SWITCH: addSwitch,
+            ADD_CLIENT: addClient,
+            ADD_EDGE: this.addEdge,
+        };
         return (
-            <Pane background={"tint1"}>
-                <Header
-                    network={this.network}
-                    isShown={this.state.isExportCodeDialogShown}
-                    isPrintManualButtonShown={this.state.isPrintManualButtonShown}
-                    disableExportCodeDialog={() => this.disableExportCodeDialog()}
-                    showExportCodeDialog={() => this.showExportCodeDialog()}
-                    printManual={() => this.printManual()}
-                />
-                <Pane
-                    display={"flex"}
-                    alignItems={'center'}
-                    flexDirection={"column"}
-                    justifyContent={'space-around'}>
-                    <Card
-                        background={'white'}
-                        marginTop={4}
-                        marginBottom={8}
-                        elevation={1}>
-                        <Pane
-                            width={this.state.width}
-                            borderBottom={'muted'}>
-                            <div id={'topology'} className="network" ref={this.appRef}/>
-                        </Pane>
-                        <Pane
-                            width={this.state.width}
-                            padding={8}>
-                            <Button marginRight={12} height={40} iconBefore="desktop" onClick={() => {
-                                //this set state will trigger update for PingTestPanel component
-                                this.setState({nodes: [...this.state.nodes, addClient()]}); //this is
-                            }}>主机</Button>
-                            <Button marginRight={12} height={40} iconBefore="exchange"
-                                    onClick={() => this.setState({nodes: [...this.state.nodes, addSwitch()]})}>交换机</Button>
-                            <Button marginRight={12} height={40} iconBefore="search-around"
-                                    onClick={() => this.setState({nodes: [...this.state.nodes, addRouter()]})}>路由器</Button>
-                            <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
-                            <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
-                                    display={this.state.isDeleteButtonShown}
-                                    onClick={() => this.deleteSelected()}>删除</Button>
-
-                        </Pane>
-                    </Card>
-                    <PingTestPanel
-                        nodes={this.state.nodes}
-                        network={this.state.network}
+            <HotKeys handlers={hotKeyHandlers}>
+                <Pane background={"tint1"}>
+                    <Header
+                        network={this.network}
+                        isShown={this.state.isExportCodeDialogShown}
+                        isPrintManualButtonShown={this.state.isPrintManualButtonShown}
+                        disableExportCodeDialog={() => this.disableExportCodeDialog()}
+                        showExportCodeDialog={() => this.showExportCodeDialog()}
+                        printManual={() => this.printManual()}
                     />
-                    <Card
-                        background={'white'}
-                        elevation={1}
-                        id="manual"
-                        width={this.state.width}>
-                        <ReactMarkdown
-                            className={"markdown-body"}
-                            source={this.state.rawString}/>
-                    </Card>
+                    <Pane
+                        display={"flex"}
+                        alignItems={'center'}
+                        flexDirection={"column"}
+                        justifyContent={'space-around'}>
+                        <Card
+                            background={'white'}
+                            marginTop={4}
+                            marginBottom={8}
+                            elevation={1}>
+                            <Pane
+                                width={this.state.width}
+                                borderBottom={'muted'}>
+                                <div id={'topology'} className="network" ref={this.appRef}/>
+                            </Pane>
+                            <Pane
+                                width={this.state.width}
+                                padding={8}>
+                                <Button marginRight={12} height={40} iconBefore="desktop" onClick={() => {
+                                    //this set state will trigger update for PingTestPanel component
+                                    this.setState({nodes: [...this.state.nodes, addClient()]}); //this is
+                                }}>主机</Button>
+                                <Button marginRight={12} height={40} iconBefore="exchange"
+                                        onClick={() => this.setState({nodes: [...this.state.nodes, addSwitch()]})}>交换机</Button>
+                                <Button marginRight={12} height={40} iconBefore="search-around"
+                                        onClick={() => this.setState({nodes: [...this.state.nodes, addRouter()]})}>路由器</Button>
+                                <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
+                                <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
+                                        display={this.state.isDeleteButtonShown}
+                                        onClick={() => this.deleteSelected()}>删除</Button>
+
+                            </Pane>
+                        </Card>
+                        <PingTestPanel
+                            nodes={this.state.nodes}
+                            network={this.state.network}
+                        />
+                        <Card
+                            background={'white'}
+                            elevation={1}
+                            id="manual"
+                            width={this.state.width}>
+                            <ReactMarkdown
+                                className={"markdown-body"}
+                                source={this.state.rawString}/>
+                        </Card>
+                    </Pane>
+
+
+                    <ClientConfigDialog
+                        disableClientDialog={() => this.disableClientDialog()}
+                        isShown={this.state.isClientDialogShown}
+                        nodes={nodes}
+                        focusedNode={this.state.focusedNode}
+                        updateClientNode={(p) => this.updateClientNode(p)}/>
+
+                    <SelectPortDialog
+                        isShown={this.state.isPortDialogShown}
+                        disablePortDialog={() => this.disablePortDialog()}
+                        confirmAddEdge={(p) => this.confirmAddEdge(p)}
+                        cancelAddEdge={() => this.cancelAddEdge()}
+                        edgeData={this.state.edgeData}
+                        fromNode={this.state.fromNode}
+                        toNode={this.state.toNode}
+                    />
+
+                    <RouterConfigDialog
+                        isShown={this.state.isRouterDialogShown}
+                        disableRouterDialog={() => this.disableRouterDialog()}
+                        focusedNode={this.state.focusedNode}
+                        device={this.state.focusedNode}
+                    />
+
+                    <SwitchConfigDialog
+                        isShown={this.state.isSwitchDialogShown}
+                        disableSwitchDialog={() => this.disableSwitchDialog()}
+                        focusedNode={this.state.focusedNode}
+                    />
+
+                    <ExportCodeDialog
+                        rawString={this.state.rawString}
+                        isShown={this.state.isExportCodeDialogShown}
+                        disableExportCodeDialog={() => this.disableExportCodeDialog()}
+                    />
+
                 </Pane>
-
-
-                <ClientConfigDialog
-                    disableClientDialog={() => this.disableClientDialog()}
-                    isShown={this.state.isClientDialogShown}
-                    nodes={nodes}
-                    focusedNode={this.state.focusedNode}
-                    updateClientNode={(p) => this.updateClientNode(p)}/>
-
-                <SelectPortDialog
-                    isShown={this.state.isPortDialogShown}
-                    disablePortDialog={() => this.disablePortDialog()}
-                    confirmAddEdge={(p) => this.confirmAddEdge(p)}
-                    cancelAddEdge={() => this.cancelAddEdge()}
-                    edgeData={this.state.edgeData}
-                    fromNode={this.state.fromNode}
-                    toNode={this.state.toNode}
-                />
-
-                <RouterConfigDialog
-                    isShown={this.state.isRouterDialogShown}
-                    disableRouterDialog={() => this.disableRouterDialog()}
-                    focusedNode={this.state.focusedNode}
-                    device={this.state.focusedNode}
-                />
-
-                <SwitchConfigDialog
-                    isShown={this.state.isSwitchDialogShown}
-                    disableSwitchDialog={() => this.disableSwitchDialog()}
-                    focusedNode={this.state.focusedNode}
-                />
-
-                <ExportCodeDialog
-                    rawString={this.state.rawString}
-                    isShown={this.state.isExportCodeDialogShown}
-                    disableExportCodeDialog={() => this.disableExportCodeDialog()}
-                />
-
-            </Pane>
+            </HotKeys>
         );
     }
 }
