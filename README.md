@@ -1,4 +1,5 @@
-# NetWeaver
+![NetWeaver](https://github.com/Tidlo/netweaver/tree/master/public/logo_full_size.png)
+
 NetWeaver is a computer network topology editor and some how simulator for connectivity test.
 Main feature of NetWeaver is it could generate configuration command lines for Huawei devices or eNsp the simulation software.
 

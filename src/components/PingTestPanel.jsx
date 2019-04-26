@@ -17,9 +17,12 @@ class PingTestPanel extends React.Component {
         // noinspection ThisExpressionReferencesGlobalObjectJS
         return (
             <Card
+                background={'white'}
                 width={900}
                 elevation={0}
-                padding={12}>
+                padding={12}
+                marginBottom={12}
+            >
                 <Heading>连通性测试</Heading>
                 <Pane marginTop={12}>
                 <SelectMenu
@@ -71,6 +74,7 @@ class PingTestPanel extends React.Component {
                       justifyContent={'space-around'}>
                     <Heading size={500} marginTop="default">{this.state.testResult ? '最短路径' : ''}</Heading>
                     <Heading size={600}
+
                              marginTop="default">{this.state.testResult ? this.state.testResult.path.join(' -> ') : '不存在通路'}</Heading>
                 </Pane>
                 </Pane>

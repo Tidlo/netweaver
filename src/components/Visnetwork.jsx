@@ -4,7 +4,7 @@ import React, {createRef} from "react";
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
-import {Button, Pane} from "evergreen-ui";
+import {Button, Card, Pane} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
 import Client from '../devices/Client'
@@ -300,7 +300,7 @@ class Visnetwork extends React.Component {
     render() {
         const {hotKeys, ...remainingProps} = this.props;
         return (
-            <Pane>
+            <Pane background={"tint1"}>
                 <Header
                     network={this.network}
                     isShown={this.state.isExportCodeDialogShown}
@@ -312,7 +312,8 @@ class Visnetwork extends React.Component {
                     alignItems={'center'}
                     flexDirection={"column"}
                     justifyContent={'space-around'}>
-                    <Pane
+                    <Card
+                        background={'white'}
                         marginTop={4}
                         marginBottom={8}
                         elevation={1}>
@@ -338,18 +339,19 @@ class Visnetwork extends React.Component {
                                     onClick={() => this.deleteSelected()}>删除</Button>
 
                         </Pane>
-                    </Pane>
+                    </Card>
                     <PingTestPanel
                         nodes={this.state.nodes}
                         network={this.state.network}
                     />
-                    <Pane
+                    <Card
+                        background={'white'}
                         elevation={1}
                         width={this.state.width}>
                         <ReactMarkdown
                             className={"markdown-body"}
                             source={this.state.rawString}/>
-                    </Pane>
+                    </Card>
                 </Pane>
 
 

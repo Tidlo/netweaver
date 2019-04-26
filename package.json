@@ -6,6 +6,7 @@
     "bootstrap": "^4.3.1",
     "evergreen-ui": "^4.15.0",
     "github-markdown-css": "^3.0.1",
+    "print-js": "^1.0.55",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hotkeys": "^1.1.4",
