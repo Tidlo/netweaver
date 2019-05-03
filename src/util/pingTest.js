@@ -2,6 +2,7 @@ function pingTest(network, sourceNodeId, destinationNodeId) {
     let edges = network.body.data.edges;
     let nodes = network.body.data.nodes;
     let loopFlag = true;
+    console.log('is route match?', isRouteMatch('192.168.2.11', '24', '192.168.2.22', '24'));
 
     let current = nodes.get(sourceNodeId);
     let destination = nodes.get(destinationNodeId);
@@ -30,7 +31,8 @@ function pingTest(network, sourceNodeId, destinationNodeId) {
         //if current device is a client
         if (current.id.includes('client')) {
             console.log('current is client');
-
+            let toNodeId = toNodeIdOf(current, current.device.ports[0]);
+            console.log('to node device type:', toNodeId);
             //if client linked with client
             if (toNodeIdOf(current, current.device.ports[0]).includes('client')) {
                 console.log('current is linked to another client');
@@ -52,6 +54,11 @@ function pingTest(network, sourceNodeId, destinationNodeId) {
                 console.log('current is linked to switch');
                 //just sent packet to switch
                 current = nodes.get(toNodeIdOf(current, current.device.ports[0]));
+            }
+            //if client linked with router
+            else if (toNodeId.includes('router')) {
+                console.log('current is linked to router');
+                current = nodes.get(toNodeId);
             }
         }
         //if current is switch
@@ -84,11 +91,13 @@ function pingTest(network, sourceNodeId, destinationNodeId) {
         else if (current.id.includes('router')) {
             console.log('current is router');
             //decide next port via rout table
-            let search = current.device.routes.filter(r => {
+            let searchedRoutes = current.device.routes.filter(r => {
                 return isRouteMatch(r.destination, r.mask, destination.device.ip, destination.device.mask);
             });
+            console.log('current routes', current.device.routes);
+            console.log('searched routes', searchedRoutes);
             //if found record, resent it
-            if (search.length > 0) {
+            if (searchedRoutes.length > 0) {
                 //if port is in subnet with destination ip
                 let searchedPort = current.device.ports.find(p => isRouteMatch(p.bindIP, destination.device.mask, destination.device.ip, destination.device.mask));
                 if (searchedPort) {
@@ -151,7 +160,8 @@ function isRouteMatch(ip1, maskNum1, ip2, maskNum2) {
     let binaryIP1 = '';
     ip1.split('.').forEach(part => {
         let tmp = parseInt(part).toString(2);
-        for (let i = 0; i < 8 - tmp.length; i++) {
+        let len = 8 - tmp.length;
+        for (let i = 0; i < len; i++) {
             tmp = '0'.concat(tmp);
         }
         binaryIP1 += tmp;
@@ -161,7 +171,8 @@ function isRouteMatch(ip1, maskNum1, ip2, maskNum2) {
     let binaryIP2 = '';
     ip2.split('.').forEach(part => {
         let tmp = parseInt(part).toString(2);
-        for (let i = 0; i < 8 - tmp.length; i++) {
+        let len = 8 - tmp.length;
+        for (let i = 0; i < len; i++) {
             tmp = '0'.concat(tmp);
         }
         binaryIP2 += tmp;
@@ -172,7 +183,7 @@ function isRouteMatch(ip1, maskNum1, ip2, maskNum2) {
     //transfer mask number(0-32) to decimal mask number.
     mask1 = Math.pow(2, 32) - Math.pow(2, 32 - mask1);
     mask2 = Math.pow(2, 32) - Math.pow(2, 32 - mask2);
-
+    // todo : deal with two different mask number e.g. 24 and 30
     return (decimalIP1 & mask1) === (decimalIP2 & mask2);
 }
 

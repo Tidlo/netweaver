@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="Add footer.">
-      <change afterPath="$PROJECT_DIR$/src/util/pingTest.js" afterDir="false" />
+    <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/pingTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/pingTest.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,9 +65,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
               <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -78,9 +72,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/pingTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="465">
+              <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
               <folding>
+                <element signature="e#1776#2772#0" />
                 <element signature="n#!!block;n#isInSameSubnet#0" />
               </folding>
             </state>
@@ -145,9 +140,9 @@
       <find>AIl</find>
       <find>width</find>
       <find>id</find>
-      <find>pingtest</find>
       <find>next</find>
       <find>next is</find>
+      <find>pingtest</find>
     </findStrings>
     <replaceStrings>
       <replace>this.props.focusedNode</replace>
@@ -339,7 +334,7 @@
       <workItem from="1556456967707" duration="1605000" />
       <workItem from="1556627565277" duration="598000" />
       <workItem from="1556678054064" duration="13463000" />
-      <workItem from="1556859443050" duration="4915000" />
+      <workItem from="1556859443050" duration="7077000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -474,11 +469,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556285502164</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implement ping test in same subnet.">
+      <created>1556867051676</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1556867051676</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208683000" />
+    <option name="totallyTimeSpent" value="210845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,15 +492,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="739" y="244" width="1056" height="542" extended-state="0" />
+    <frame x="-7" y="-7" width="1563" height="855" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28235295" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18860511" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32635984" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.8366337" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27057183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39888424" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -534,7 +537,8 @@
     <MESSAGE value="Add click to print current configuration manual.&#10;&#10;- The printed manual included a snapshot of network and a detailed configuration guide.&#10;- Not using third party libs to generate pdf file but only use css print mark to select elements." />
     <MESSAGE value="Add hot keys to easily manipulate network.&#10;&#10;- 'Delete' key for 'delete selected node or edge'.&#10;- 'R' key for 'add Router'.&#10;- 'C' key for 'add Client'.&#10;- 'S' key for 'add Switch'.&#10;- 'E' or 'L' for 'add Edge/Link' between nodes." />
     <MESSAGE value="Add footer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add footer." />
+    <MESSAGE value="Implement ping test in same subnet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement ping test in same subnet." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -654,16 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -774,9 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,11 +778,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4464" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/pingTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="465">
+          <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
           <folding>
+            <element signature="e#1776#2772#0" />
             <element signature="n#!!block;n#isInSameSubnet#0" />
           </folding>
         </state>
