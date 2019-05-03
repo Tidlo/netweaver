@@ -299,7 +299,7 @@ class Visnetwork extends React.Component {
     deleteSelected = () => {
         let selectedEdge = this.network.body.data.edges.get(this.state.selectedEdge);
         console.log(selectedEdge);
-        if (selectedEdge && selectedEdge.length > 0) {
+        if (selectedEdge) {
             this.network.body.data.nodes.get(selectedEdge.from).device.releasePort(selectedEdge.fromPort);
             this.network.body.data.nodes.get(selectedEdge.to).device.releasePort(selectedEdge.toPort);
         }
