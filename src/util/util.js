@@ -115,7 +115,6 @@ let generateCode = (network) => {
 let getDestination = (node, port) => {
     let destinationDevice = '';
     let destinationPort = '';
-    let edgeData = port.edgeData;
     if (node.label === port.edgeData.from) {
         destinationDevice = port.edgeData.to;
         destinationPort = port.edgeData.toPort;
@@ -138,6 +137,7 @@ let judge = (network) => {
 };
 
 function isConnected(network, client1, switch1, router1) {
+
     let binIp1 = '';
     if (!client1.device.ip) return false;
     client1.device.ip.split('.').forEach(part => {
@@ -340,7 +340,7 @@ let pingTest = (network, node1, node2) => {
             console.log(passStatus);
             passStatus.push(false);
         }
-        console.log(passStatus);
+        // console.log(passStatus);
     }
 
     return {

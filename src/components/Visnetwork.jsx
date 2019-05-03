@@ -140,6 +140,7 @@ class Visnetwork extends React.Component {
     componentDidMount() {
         // define network options
         let options = {
+            width: '900px',
             locale: 'en',
             manipulation: {
                 initiallyActive: true,
