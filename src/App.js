@@ -4,7 +4,6 @@ import Visnetwork from "./components/Visnetwork";
 import {Pane} from "evergreen-ui";
 import {HotKeys} from "react-hotkeys";
 
-
 const keyMap = {
     DELETE_SELECTED: "del",
     ADD_ROUTER: "r",

@@ -26,3 +26,8 @@ code {
     padding: 15px;
   }
 }
+
+.right-arrow {
+    fill: #657789;
+    padding-right: 6px;
+}

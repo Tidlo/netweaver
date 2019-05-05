@@ -125,16 +125,6 @@ let getDestination = (node, port) => {
     return destinationDevice + "." + destinationPort;
 };
 
-let judge = (network) => {
-    let score = 100;
-    let nodes = network.data.nodes;
-    let edges = network.data.edges;
-
-    //if switch access port linked to non-client device, -10
-
-    //if switch hybrid port linked to client device, -10
-    return score;
-};
 
 function isConnected(network, client1, switch1, router1) {
 

@@ -34,8 +34,6 @@ let routerNumbers = 1;
 let clientNumbers = 1;
 let switchNumbers = 1;
 
-let dataURL = '';
-
 let callBack = function () {
 };
 
@@ -91,7 +89,6 @@ function addSwitch() {
     return id;
 }
 
-
 // initialize your network!
 class Visnetwork extends React.Component {
 
@@ -118,22 +115,7 @@ class Visnetwork extends React.Component {
             selectedEdge: null,
             width: 900,
         };
-        //initialize network
-        // addSwitch();
-        // addSwitch();
-        // addClient();
-        // addClient();
-        // addClient();
-        // addClient();
-        // addRouter();
-        edges = new DataSet([
-            // {from: 'client1', to: 'switch1'},
-            // {from: 'client2', to: 'switch1'},
-            // {from: 'client3', to: 'switch2'},
-            // {from: 'client4', to: 'switch2'},
-            // {from: 'router1', to: 'switch1'},
-            // {from: 'router1', to: 'switch2'},
-        ]);
+        edges = new DataSet([]);
         data = {nodes, edges};
     }
 
@@ -209,10 +191,6 @@ class Visnetwork extends React.Component {
         this.network.on("oncontext", function (params) {
             params.event = "[original event]";
             console.log(JSON.stringify(params, null, 4));
-        });
-
-        this.network.on("afterDrawing", function (ctx) {
-            dataURL = ctx.canvas.toDataURL();
         });
 
         this.setState({network: this.network});  //state won't change in this scope
@@ -299,7 +277,7 @@ class Visnetwork extends React.Component {
     deleteSelected = () => {
         let selectedEdge = this.network.body.data.edges.get(this.state.selectedEdge);
         console.log(selectedEdge);
-        if (selectedEdge) {
+        if (selectedEdge.size > 0) {
             this.network.body.data.nodes.get(selectedEdge.from).device.releasePort(selectedEdge.fromPort);
             this.network.body.data.nodes.get(selectedEdge.to).device.releasePort(selectedEdge.toPort);
         }
