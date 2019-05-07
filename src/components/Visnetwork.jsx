@@ -119,6 +119,7 @@ class Visnetwork extends React.Component {
         data = {nodes, edges};
     }
 
+    //When I wrote this, only God and I understood what I was doing
     componentDidMount() {
         // define network options
         let options = {

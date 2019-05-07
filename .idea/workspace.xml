@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Icons/roundarrow.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PingTestPanel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/getDestination.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/pingTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/pingTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/util.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,8 +22,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/util/util.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="651">
-                    <caret line="232" column="24" lean-forward="true" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
+                  <state relative-caret-position="-558">
+                    <caret line="229" column="33" selection-start-line="229" selection-start-column="33" selection-end-line="229" selection-end-column="33" />
                     <folding>
                       <element signature="e#44#703#0" />
                       <element signature="e#744#3038#0" />
@@ -47,7 +38,7 @@
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/devices/Router.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="31">
+                  <state relative-caret-position="248">
                     <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
                   </state>
                 </provider>
@@ -63,11 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="155">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -75,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="123" column="63" lean-forward="true" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
+            <state relative-caret-position="3782">
+              <caret line="123" column="63" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -87,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/SelectPortDialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+            <state relative-caret-position="3720">
+              <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -99,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/SwitchConfigDialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-620">
+            <state relative-caret-position="1147">
               <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
             </state>
           </provider>
@@ -108,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/SwitchPortItem.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1468">
+            <state relative-caret-position="465">
               <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -117,23 +105,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="155">
+              <caret line="119" column="5" lean-forward="true" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/pingTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+            <state relative-caret-position="-775">
+              <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -150,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Footer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="62">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -163,7 +148,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/Header.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="186">
-              <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+              <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -243,17 +228,17 @@
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/PingTestPanel.jsx" />
         <option value="$PROJECT_DIR$/src/components/RouterConfigDialog.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Visnetwork.jsx" />
         <option value="$PROJECT_DIR$/src/util/util.js" />
         <option value="$PROJECT_DIR$/src/util/pingTest.js" />
+        <option value="$PROJECT_DIR$/src/components/Visnetwork.jsx" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="334" />
-    <option name="y" value="167" />
-    <option name="width" value="1494" />
-    <option name="height" value="817" />
+    <option name="x" value="360" />
+    <option name="y" value="-9" />
+    <option name="width" value="1495" />
+    <option name="height" value="819" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -409,7 +394,8 @@
       <workItem from="1556678054064" duration="13463000" />
       <workItem from="1556859443050" duration="15646000" />
       <workItem from="1556972860079" duration="1392000" />
-      <workItem from="1557045293363" duration="2853000" />
+      <workItem from="1557045293363" duration="2998000" />
+      <workItem from="1557226523845" duration="1247000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -565,11 +551,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556870680172</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Finished basic development.&#10;- polished UI details&#10;- minor bug fixed&#10;- finished ping test result display">
+      <created>1557048277794</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1557048277794</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223659000" />
+    <option name="totallyTimeSpent" value="225051000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,7 +577,7 @@
     <frame x="-7" y="-7" width="1563" height="855" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1453831" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1611002" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -629,7 +622,8 @@
     <MESSAGE value="Implement ping test in same subnet." />
     <MESSAGE value="Implement ping test of client-router-client.&#10;- clients are in different subnet.&#10;- static route between two networks should be specified." />
     <MESSAGE value="Implement ping test of client-switch-router-switch-client.&#10;- clients are in different subnet.&#10;- static route between two networks should be specified." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement ping test of client-switch-router-switch-client.&#10;- clients are in different subnet.&#10;- static route between two networks should be specified." />
+    <MESSAGE value="Finished basic development.&#10;- polished UI details&#10;- minor bug fixed&#10;- finished ping test result display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished basic development.&#10;- polished UI details&#10;- minor bug fixed&#10;- finished ping test result display" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -768,13 +762,6 @@
     <entry file="file://$PROJECT_DIR$/src/Icons/roundarrow.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/devices/Router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -796,6 +783,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/getDestination.js" />
+    <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3782">
+          <caret line="123" column="63" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SelectPortDialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3720">
+          <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SwitchConfigDialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1147">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SwitchPortItem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ExportCodeDialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -805,8 +837,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Footer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="62">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -816,74 +848,14 @@
     <entry file="file://$PROJECT_DIR$/src/components/Header.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
-          <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PingTestPanel.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RouterConfigDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="123" column="63" lean-forward="true" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SelectPortDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SwitchConfigDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SwitchPortItem.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1468">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/getDestination.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="232" column="24" lean-forward="true" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
+        <state relative-caret-position="-558">
+          <caret line="229" column="33" selection-start-line="229" selection-start-column="33" selection-end-line="229" selection-end-column="33" />
           <folding>
             <element signature="e#44#703#0" />
             <element signature="e#744#3038#0" />
@@ -894,10 +866,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/devices/Router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/pingTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+        <state relative-caret-position="-775">
+          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Visnetwork.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="119" column="5" lean-forward="true" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
         </state>
       </provider>
     </entry>
