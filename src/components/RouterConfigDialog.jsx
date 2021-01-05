@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Dialog, IconButton, Pane, Tab, Table, Tablist, TextInputField} from "evergreen-ui";
+import {Button, Dialog, IconButton, Pane, Tab, Table, Tablist, TextInputField, TrashIcon} from "evergreen-ui";
 
 let util = require('../util/util');
 const ipRegex = "\\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\\b";
@@ -130,7 +130,7 @@ class RouterConfigDialog extends Component {
                                                 <Table.TextCell>{route.nextHop}</Table.TextCell>
                                                 <Table.TextCell isNumber>{route.mask}</Table.TextCell>
                                                 <Table.Cell flex={'none'}>
-                                                    <IconButton icon="trash" intent="danger" onClick={() => {
+                                                    <IconButton icon={TrashIcon} intent="danger" onClick={() => {
                                                         this.props.focusedNode.device.deleteRoute(route.destination);
                                                         this.forceUpdate();
                                                     }}/>

@@ -5,7 +5,7 @@ import {HotKeys} from "react-hotkeys";
 import routerIcon from '../img/router.png';
 import clientIcon from '../img/client.png';
 import switchIcon from '../img/switch.png';
-import {Button, Card, Pane} from "evergreen-ui";
+import {Button, Card, DesktopIcon, ExchangeIcon, NewLinkIcon, Pane, SearchAroundIcon, TrashIcon} from "evergreen-ui";
 import ClientConfigDialog from "./ClientConfigDialog";
 import SelectPortDialog from "./SelectPortDialog";
 import Client from '../devices/Client'
@@ -326,16 +326,17 @@ class Visnetwork extends React.Component {
                             <Pane
                                 width={this.state.width}
                                 padding={8}>
-                                <Button marginRight={12} height={40} iconBefore="desktop" onClick={() => {
+                                <Button marginRight={12} height={40} iconBefore={DesktopIcon} onClick={() => {
                                     //this set state will trigger update for PingTestPanel component
                                     this.setState({nodes: [...this.state.nodes, addClient()]}); //this is
                                 }}>主机</Button>
-                                <Button marginRight={12} height={40} iconBefore="exchange"
+                                <Button marginRight={12} height={40} iconBefore={ExchangeIcon}
                                         onClick={() => this.setState({nodes: [...this.state.nodes, addSwitch()]})}>交换机</Button>
-                                <Button marginRight={12} height={40} iconBefore="search-around"
+                                <Button marginRight={12} height={40} iconBefore={SearchAroundIcon}
                                         onClick={() => this.setState({nodes: [...this.state.nodes, addRouter()]})}>路由器</Button>
-                                <Button marginRight={12} height={40} iconBefore="new-link" onClick={this.addEdge}>连线</Button>
-                                <Button marginRight={12} height={40} iconBefore="trash" intent="danger"
+                                <Button marginRight={12} height={40} iconBefore={NewLinkIcon}
+                                        onClick={this.addEdge}>连线</Button>
+                                <Button marginRight={12} height={40} iconBefore={TrashIcon} intent="danger"
                                         display={this.state.isDeleteButtonShown}
                                         onClick={() => this.deleteSelected()}>删除</Button>
 

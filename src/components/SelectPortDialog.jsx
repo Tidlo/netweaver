@@ -1,8 +1,19 @@
 import React from 'react';
-import {Button, Dialog, Icon, Pane, SelectMenu, toaster} from "evergreen-ui";
+import {
+    Button,
+    CrossIcon,
+    DesktopIcon,
+    Dialog,
+    ExchangeIcon,
+    Icon,
+    Pane,
+    SearchAroundIcon,
+    SelectMenu,
+    toaster
+} from "evergreen-ui";
 
-let fromDeviceIcon = 'cross';
-let toDeviceIcon = 'cross';
+let fromDeviceIcon = CrossIcon;
+let toDeviceIcon = CrossIcon;
 
 class SelectPortDialog extends React.Component {
     constructor(props) {
@@ -45,30 +56,30 @@ class SelectPortDialog extends React.Component {
         if (nextProps && nextProps.edgeData && nextProps.edgeData.from && nextProps.edgeData.from.length > 0) {
             switch (nextProps.edgeData.from.substring(0, 6)) {
                 case 'client':
-                    fromDeviceIcon = 'desktop';
+                    fromDeviceIcon = DesktopIcon;
                     break;
                 case 'router' :
-                    fromDeviceIcon = 'search-around';
+                    fromDeviceIcon = SearchAroundIcon;
                     break;
                 case 'switch' :
-                    fromDeviceIcon = 'exchange';
+                    fromDeviceIcon = ExchangeIcon;
                     break;
                 default:
-                    fromDeviceIcon = 'cross';
+                    fromDeviceIcon = CrossIcon;
             }
 
             switch (nextProps.edgeData.to.substring(0, 6)) {
                 case 'client':
-                    toDeviceIcon = 'desktop';
+                    toDeviceIcon = DesktopIcon;
                     break;
                 case 'router' :
-                    toDeviceIcon = 'search-around';
+                    toDeviceIcon = SearchAroundIcon;
                     break;
                 case 'switch' :
-                    toDeviceIcon = 'exchange';
+                    toDeviceIcon = ExchangeIcon;
                     break;
                 default:
-                    toDeviceIcon = 'cross';
+                    toDeviceIcon = CrossIcon;
             }
         }
         return true;

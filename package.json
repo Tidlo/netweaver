@@ -1,17 +1,17 @@
 {
   "name": "netweaver",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@svgr/webpack": "^4.2.0",
-    "bootstrap": "^4.3.1",
-    "evergreen-ui": "^4.15.0",
+    "@svgr/webpack": "^4.3.3",
+    "bootstrap": "^4.5.3",
+    "evergreen-ui": "^5.1.2",
     "github-markdown-css": "^3.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-hotkeys": "^1.1.4",
-    "react-markdown": "^4.0.8",
-    "react-scripts": "2.1.8",
+    "react-markdown": "^4.3.1",
+    "react-scripts": "^4.0.1",
     "vis": "^4.21.0"
   },
   "scripts": {
@@ -30,6 +30,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-jsx-a11y": "^6.2.1"
+    "eslint-plugin-jsx-a11y": "^6.4.1"
   }
 }
