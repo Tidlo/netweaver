@@ -152,14 +152,14 @@ class RouterConfigDialog extends Component {
                                     onChange={e => this.setState({destination: e.target.value})}/>
                                 <TextInputField
                                     marginLeft={12}
-                                    label={"子网掩码"}
-                                    value={this.state.mask}
-                                    onChange={e => this.setState({mask: e.target.value})}/>
-                                <TextInputField
-                                    marginLeft={12}
                                     label={"下一跳"}
                                     value={this.state.nextHop}
                                     onChange={e => this.setState({nextHop: e.target.value})}/>
+                                <TextInputField
+                                    marginLeft={12}
+                                    label={"子网掩码"}
+                                    value={this.state.mask}
+                                    onChange={e => this.setState({mask: e.target.value})}/>
                                 <Button
                                     onClick={() => {
                                         console.log(this.state);
