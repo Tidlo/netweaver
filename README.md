@@ -2,8 +2,10 @@
 
 NetWeaver is a topology editor for computer network .
 
-The main feature of NetWeaver is it could generate configuration command-line instructions for Huawei devices or eNsp simulation software.
+The main feature of NetWeaver is it could generate configuration command-line instructions for Huawei devices or eNsp
+simulation software.
 
+demo:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

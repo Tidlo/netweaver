@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit">
+      <change afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RouterConfigDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterConfigDialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SelectPortDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectPortDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,9 +213,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -224,7 +228,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Users\Joey\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\203.6682.155\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -246,6 +250,16 @@
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -256,6 +270,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -295,7 +314,10 @@
       <workItem from="1556972860079" duration="1392000" />
       <workItem from="1557045293363" duration="2998000" />
       <workItem from="1557226523845" duration="1247000" />
-      <workItem from="1609840683094" duration="4370000" />
+      <workItem from="1609840683094" duration="5743000" />
+      <workItem from="1609986919125" duration="2345000" />
+      <workItem from="1610098713362" duration="8000" />
+      <workItem from="1614331503312" duration="5484000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -458,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557048277794</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit">
+      <created>1609848056130</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1609848056130</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -511,6 +540,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basically implement topology part." />
@@ -534,7 +564,8 @@
     <MESSAGE value="Implement ping test of client-router-client.&#10;- clients are in different subnet.&#10;- static route between two networks should be specified." />
     <MESSAGE value="Implement ping test of client-switch-router-switch-client.&#10;- clients are in different subnet.&#10;- static route between two networks should be specified." />
     <MESSAGE value="Finished basic development.&#10;- polished UI details&#10;- minor bug fixed&#10;- finished ping test result display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished basic development.&#10;- polished UI details&#10;- minor bug fixed&#10;- finished ping test result display" />
+    <MESSAGE value="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

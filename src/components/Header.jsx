@@ -15,7 +15,7 @@ class Header extends Component{
                         marginRight={12}
                         display={this.props.isPrintManualButtonShown ? 'inline-block' : 'none'}
                         onClick={this.props.printManual}>打印</Button>
-                    <Button appearance="primary" onClick={this.props.showExportCodeDialog}>导出</Button>
+                    <Button appearance="primary" onClick={this.props.showExportCodeDialog}>导出配置文档</Button>
                 </Pane>
             </Pane>
         );

@@ -47,7 +47,10 @@ function addClient() {
             image: clientIcon,
             shape: 'image',
             icon: 'desktop',
-            device: new Client()
+            device: new Client({
+                ip: `192.168.1.${clientNumbers}`,
+                gateway: '255.255.255.0'
+            })
         });
     } catch (err) {
         alert(err);

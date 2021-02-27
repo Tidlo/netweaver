@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@svgr/webpack": "^4.3.3",
-    "bootstrap": "^4.5.3",
     "evergreen-ui": "^5.1.2",
     "github-markdown-css": "^3.0.1",
     "react": "^16.14.0",

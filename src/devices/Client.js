@@ -1,10 +1,10 @@
 import Device from "./Device";
 
 class Client extends Device {
-    constructor() {
+    constructor(props) {
         super();
-        this.gateway = '';
-        this.ip = '';
+        this.gateway = props?.gateway;
+        this.ip = props?.ip;
         this.mask = '';
         this.ports.push({
             name: 'Ethernet 0/0/1',
