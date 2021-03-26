@@ -15,7 +15,7 @@ function pingTest(network, sourceNodeId, destinationNodeId) {
     //loop count to avoid infinite loop
     let loopCount = 0;
     //iteration starts here
-    while (loopFlag && loopCount < 100) {
+    while (loopFlag && loopCount < 1000) {
         loopCount++;
         //if current is the destination
         if (current.id === destinationNodeId) {
@@ -64,9 +64,9 @@ function pingTest(network, sourceNodeId, destinationNodeId) {
         //if current is switch
         else if (current.id.includes('switch')) {
             //search destination ip next neighbors
-            let searchedPort = current.device.ports.find(p => {
-                return toNodeIdOf(current, p) === destination.id;
-            });
+            let searchedPort = current.device.ports.find(p =>
+              toNodeIdOf(current, p) === destination.id
+            );
             //if find destination device is linked with current switch
             if (searchedPort) {
                 console.log('destination device is linked with current switch');

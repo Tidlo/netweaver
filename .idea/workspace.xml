@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit">
-      <change afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+    <list default="true" id="87558b2d-7090-49db-bea6-f16d4fd7220e" name="Default Changelist" comment="Switch TextInputField positions in RouterConfigDialog.jsx">
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Visnetwork.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Visnetwork.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/devices/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/pingTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/pingTest.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +227,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="C:\Users\Joey\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\203.6682.155\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\Joey\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\203.7717.59\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -317,7 +315,10 @@
       <workItem from="1609840683094" duration="5743000" />
       <workItem from="1609986919125" duration="2345000" />
       <workItem from="1610098713362" duration="8000" />
-      <workItem from="1614331503312" duration="5484000" />
+      <workItem from="1614331503312" duration="8791000" />
+      <workItem from="1614510031030" duration="2151000" />
+      <workItem from="1614571039451" duration="11000" />
+      <workItem from="1616736635144" duration="4413000" />
     </task>
     <task id="LOCAL-00001" summary="Basically implement topology part.">
       <created>1554774034061</created>
@@ -487,7 +488,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609848056130</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Set default value for added clients.">
+      <created>1614394129998</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1614394129998</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Switch TextInputField positions in RouterConfigDialog.jsx">
+      <created>1614394243565</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1614394243565</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -565,7 +580,9 @@
     <MESSAGE value="Implement ping test of client-switch-router-switch-client.&#10;- clients are in different subnet.&#10;- static route between two networks should be specified." />
     <MESSAGE value="Finished basic development.&#10;- polished UI details&#10;- minor bug fixed&#10;- finished ping test result display" />
     <MESSAGE value="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dependency and migrate to evergreen-ui 5.1.2.&#10;- fix icon lose during migration to evergreen-ui 5.x&#10;- npm audit" />
+    <MESSAGE value="Set default value for added clients." />
+    <MESSAGE value="Switch TextInputField positions in RouterConfigDialog.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switch TextInputField positions in RouterConfigDialog.jsx" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
