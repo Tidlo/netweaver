@@ -12,8 +12,8 @@ import {
     ExchangeIcon,
     NewLinkIcon,
     Pane,
+    Paragraph,
     SearchAroundIcon,
-    Text,
     Tooltip,
     TrashIcon
 } from "evergreen-ui";
@@ -381,11 +381,18 @@ class Visnetwork extends React.Component {
                         alignItems={'center'}
                         justifyContent={'center'}
                         id="manual"
+                        marginBottom={"32px"}
                         width={this.state.width}>
                           {
                               this.state.rawString
                                 ? <ReactMarkdown className={"markdown-body"} source={this.state.rawString}/>
-                                : <Text color={'muted'}>点击 “导出配置文档” 按钮以导出网络设备配置文档</Text>
+                                : <Pane display={"flex"}
+                                        alignItems={'center'}
+                                        flexDirection={'column'}
+                                        justifyContent={'center'}>
+                                    <Paragraph color={'muted'}> 点击任意设备按钮添加新设备 </Paragraph>
+                                    <Paragraph color={'muted'}> 双击任意设备图标进入配置界面 </Paragraph>
+                                </Pane>
                           }
                       </Card>
                   </Pane>
